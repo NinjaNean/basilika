@@ -1,5 +1,6 @@
 import { NavLink, Outlet } from "react-router";
 import "./App.css";
+import Footer from "./Component/Footer.jsx";
 
 function App() {
   return (

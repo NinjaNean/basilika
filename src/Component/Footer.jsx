@@ -1,27 +1,31 @@
+import './Footer.css';
+
 const Footer = () => {
     return (
         <footer className="footer">
-        <div className="footer_container">
-            <div className="footer_heading1">
+        <div className="footer-container">
+            <div className="footer-heading1">
                 <h3>Basil</h3>
-                <p>Besök oss i Göteborg och smaka på våra rätter med ursprung i det asisatiaska köket</p>
+                <p>Besök oss i Göteborg och<br/> smaka på våra rätter med<br/> ursprung i det asisatiaska köket</p>
             </div>
 
-            <div className="footer_heading2">
+            <div className="footer-heading1">
                 <h4>Kontakt</h4>
-                <p>restaurangbasil@gmail.com, 031-123456</p>
-                <img>Font</img>
-                <img>Font</img>
+                <p>contactbasil@gmail.com <br />031-123456</p>
+                    <section className='footer-font'>
+                        <p>Font</p>
+                        <p>Font</p>
+                    </section> 
             </div>
 
-            <div className="footer_heading3">
-                <h3>Adress</h3>
-                <p>Redegatan 2..</p>
+            <div className="footer-heading1">
+                <h4>Adress</h4>
+                <p>Redegatan 2<br/>42155 Göteborg </p>
             </div>
 
-            <div className="footer_heading4">
+            <div className="footer-heading1">
                 <h4>Hitta oss</h4>
-                <img>Liten karta</img>
+                <p>Liten karta</p>
             </div>
         </div>
         </footer>
