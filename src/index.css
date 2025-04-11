@@ -1,6 +1,12 @@
 :root {
-	--dark-red: #511013;
-	--dark-background: #151515;
-	--white-color: #E4E4E4;
-	--black-color: black;
+  --dark-red: #511013;
+  --dark-background: #151515;
+  --white-color: #e4e4e4;
+  --black-color: black;
+}
+
+* {
+  font-family: "Libre Caslon Text", serif;
+  font-weight: 400;
+  font-style: normal;
 }

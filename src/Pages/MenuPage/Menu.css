@@ -1,3 +1,8 @@
 .menu {
-	
+  background: var(--dark-red);
+  color: var(--white-color);
+  padding: 1rem;
+}
+
+.menu-item {
 }
