@@ -38,12 +38,19 @@
             justify-content: center;
     }
     .fonts {
-        width: 17px;
-        height: 18px; 
+        width: 18px;
+        height: 19px; 
     }
-.basil-header {
-    font-size: 15px;
+    h4 {
+        color: #c3ab86;
+        margin: 16px 16px 0 0;
+        text-align: center;
+        padding: 0.3em;
+    }
 }
+h4.basil-header {
+    font-size: 15px;
+    color: #DCA537;
 }
 
 .footer-font {
@@ -52,7 +59,8 @@
     gap: 10px;
     justify-content: center;
     margin: 0.1em;
-    
+    padding: 0.3em;
+    color: #c3ab86;
    
 }
 .footer-source {
@@ -121,7 +129,7 @@
         width: calc(50% - 8px); /* Justering för padding/marginal */
         box-sizing: border-box;
 
-    }
+    }   
 }
 
 @media (max-width: 375px) {

@@ -12,12 +12,12 @@ const Footer = () => {
         <footer className="footer">
             <div className="footer-container">
                 <div className="footer-heading1">
-                     <h4 className='basil-header'>Basil</h4>    
-                    <p className='footer-text'>Besök oss i Göteborg och<br/> smaka på våra rätter med<br/> ursprung i det asiatiska köket</p>
+                     <h4 className='basil-header'>Basil</h4>  
+                    <p className='footer-text'>Visit us in Gothenburg<br/> and taste our dishes with<br/> origin in asian cuisine</p>
                 </div>
 
                 <div className="footer-heading1">
-                    <h4>Kontakt</h4>
+                    <h4>Contact</h4>
                     <p className='footer-text'> basil@gmail.com <br />031-123456</p>
                         <section className='footer-font'>
                         <FontAwesomeIcon icon={faTwitter} className='fonts'/>
@@ -28,16 +28,16 @@ const Footer = () => {
 
                 <div className="footer-heading1">
                     <h4>Adress</h4>
-                    <p className='footer-text'>Redegatan 2<br/>42155 Göteborg </p>
+                    <p className='footer-text'>Redegatan 2<br/>42155 Gothenburg </p>
                 </div>
 
                 <div className="footer-heading1">
-                    <h4>Hitta oss</h4>
+                    <h4>Find us</h4>
                     <img className='small-map' src={map} alt="small map" />
                 </div>
             
                 <section className='footer-source'>
-                    <p className='source'> Utvecklad och designad av Linnéa, Sally, Shweta, Malahat och Sara </p>
+                    <p className='source'> Developed by Linnéa, Sally, Shweta, Malahat and Sara </p>
                 </section>
             </div>
         </footer>
