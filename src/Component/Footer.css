@@ -1,10 +1,15 @@
 .footer{
-    position:absolute;
+    position: relative;
+    height: 100px;
+    background-color: #333333;
+    color: white;
+    font-family: 'Merriweather', sans-serif;
 }
 .footer-container {
     display: flex;
     flex-direction: row;
-    gap: 20px;
+    flex-wrap: wrap;
+
 
     h3 {
         margin-bottom: 16px;
@@ -13,12 +18,51 @@
 .footer-heading1 {
     display: flex;
     flex-direction: column;
-    width: 20%;
     margin: 0.5em;
     padding: 0.5em;
+    flex: 1 10px;
+    gap: 10px;
+    height: 100%;
 }
 .footer-font {
     display: flex;
     flex-direction: row;
     gap: 10px;
+    justify-content: center;
+}
+@media (min-width: 320px) {
+
+    .footer-heading1 {
+        width: 20%;
+        text-align: center;
+        margin: 2px;
+        padding: 2px;
+
+        h4 {
+            margin: 4px;
+            font-size: 13px;
+        }
+        h3 {
+            margin: 4px;
+            font-size: 14px;
+        }
+
+        p {
+            margin: 4px;
+            font-size: 12px;
+            word-wrap: break-word;
+        }
+
+    }
+    .footer-container {
+        gap: 5px;
+    }
+}
+.footer-source {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    font-size: 10px;
+    justify-content: flex-end;
+    margin-top: 10px;
 }
