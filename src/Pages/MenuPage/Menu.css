@@ -4,5 +4,30 @@
   padding: 1rem;
 }
 
+.allergen-info {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
 .menu-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  border-bottom: 1px solid var(--white-color);
+  padding: 1rem;
+
+  > img {
+    max-width: 200px;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    border-radius: 5px;
+  }
+
+  .cart-buttons {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
 }
