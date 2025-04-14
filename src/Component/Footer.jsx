@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTwitter } from '@fortawesome/free-brands-svg-icons';
 import { faFacebook } from '@fortawesome/free-brands-svg-icons';
 import { faInstagram } from '@fortawesome/free-brands-svg-icons';   
-import map from '../assets/map.png';
+import map from '../image/map.jpg';
 
 
 
@@ -37,7 +37,7 @@ const Footer = () => {
                 </div>
             
                 <section className='footer-source'>
-                    <p className='source'> Developed by Linnéa, Sally, Shweta, Malahat and Sara </p>
+                    <p className='source'> Developed by Sally, Linnéa, Shweta, Malahat and Sara </p>
                 </section>
             </div>
         </footer>

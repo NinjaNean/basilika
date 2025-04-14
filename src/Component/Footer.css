@@ -2,7 +2,7 @@
     box-sizing: border-box;
 }
 .footer{
-    position: relative;
+    position: absolute;
     height: 100px;
     font-family: 'Merriweather', sans-serif;
 }
@@ -49,7 +49,7 @@
     }
 }
 h4.basil-header {
-    font-size: 15px;
+    font-size: 17px;
     color: #DCA537;
 }
 
