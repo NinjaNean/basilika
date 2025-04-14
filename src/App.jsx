@@ -1,11 +1,13 @@
 import { NavLink, Outlet } from "react-router";
 import "./App.css";
-import Footer from "./Component/Footer.jsx";
+import Footer from "./Component/footer/Footer.jsx";
+import Header from "./Component/header/Header.jsx";
 
 function App() {
   return (
     <>
       <header>
+        <Header/>
         <NavLink to={"/"}>Home</NavLink>
         <NavLink to={"/contact"}>Contact</NavLink>
         <NavLink to={"/menu"}>Menu</NavLink>

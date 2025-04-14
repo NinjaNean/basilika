@@ -1,9 +1,7 @@
-import './Footer.css';
+import '../footer/Footer.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTwitter } from '@fortawesome/free-brands-svg-icons';
-import { faFacebook } from '@fortawesome/free-brands-svg-icons';
-import { faInstagram } from '@fortawesome/free-brands-svg-icons';   
-import smallMap from '../assets/smallMap.png';
+import { faTwitter, faFacebook, faInstagram } from '@fortawesome/free-brands-svg-icons'; 
+import smallMap from '../../assets/smallMap.png';
 
 
 
