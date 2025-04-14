@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTwitter } from '@fortawesome/free-brands-svg-icons';
 import { faFacebook } from '@fortawesome/free-brands-svg-icons';
 import { faInstagram } from '@fortawesome/free-brands-svg-icons';   
-import map from '../image/map.jpg';
+import smallMap from '../assets/smallMap.png';
 
 
 
@@ -20,12 +20,12 @@ const Footer = () => {
                     <h4>Contact</h4>
                     <p className='footer-text'> basil@gmail.com <br />031-123456</p>
                         <section className='footer-font'>
-                        <FontAwesomeIcon icon={faTwitter} className='fonts'/>
+                        <FontAwesomeIcon icon={faInstagram} className='fonts'/>
+                        <FontAwesomeIcon icon={faTwitter} className='fonts'/> 
                         <FontAwesomeIcon icon={faFacebook} className='fonts'/>
-                        <FontAwesomeIcon icon={faInstagram} className='fonts'/>  
                         </section> 
                 </div>
-
+                
                 <div className="footer-heading1">
                     <h4>Adress</h4>
                     <p className='footer-text'>Redegatan 2<br/>42155 Gothenburg </p>
@@ -33,7 +33,7 @@ const Footer = () => {
 
                 <div className="footer-heading1">
                     <h4>Find us</h4>
-                    <img className='small-map' src={map} alt="small map" />
+                    <img src={smallMap} alt="small map" />
                 </div>
             
                 <section className='footer-source'>

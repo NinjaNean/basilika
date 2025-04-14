@@ -3,7 +3,7 @@
 }
 .footer{
     position: absolute;
-    height: 100px;
+    height: auto;
     font-family: 'Merriweather', sans-serif;
 }
 .footer-container {
@@ -22,41 +22,49 @@
     gap: 10px;
     width: 100%;
     height: 100%;
-    align-items: center;
+    align-items:flex-start;
     justify-content: center;
+    
 
     .footer-text {
         font-size: 13px;
         margin: 0.1em;
         padding: 0.1em;
-        text-align: center;
+        text-align: left;
         
     }
     img
         {
             display: flex;
             justify-content: center;
+            width: 80px;
+            height: 75px;
+            font-size: 12px;
+            border-radius: 2px;
     }
     .fonts {
         width: 18px;
         height: 19px; 
+        
     }
     h4 {
         color: #c3ab86;
-        margin: 16px 16px 0 0;
-        text-align: center;
-        padding: 0.3em;
+        margin: 0;
+        text-align: left;
+        padding: 0.1em;
+        margin: 0.1em;
     }
 }
 h4.basil-header {
     font-size: 17px;
     color: #DCA537;
+    text-align: left;
 }
 
 .footer-font {
     display: flex;
     flex-direction: row;
-    gap: 10px;
+    gap: 14px;
     justify-content: center;
     margin: 0.1em;
     padding: 0.3em;
@@ -91,12 +99,9 @@ h4.basil-header {
 .fonts:hover {
     cursor:pointer;
 }
-.small-map {
-    width: 75px;
-    height: 75px;
-    font-size: 12px;
-}
-@media (min-width: 750px) {
+
+
+/* @media (min-width: 750px) {
     .footer-heading1 {
 
         h4 {
@@ -127,12 +132,12 @@ h4.basil-header {
         padding: 4px;
         flex: 0 0 auto; 
         width: calc(50% - 8px); /* Justering för padding/marginal */
-        box-sizing: border-box;
+        /* box-sizing: border-box; */
 
-    }   
+    /* }   
 }
-
-@media (max-width: 375px) {
+/*  
+/* @media (max-width: 375px) {
     .footer-container {
         flex-direction: row;
         flex-wrap: wrap;
@@ -159,4 +164,4 @@ h4.basil-header {
             
         }
     
-}
+} */ 
