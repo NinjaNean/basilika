@@ -1,4 +1,4 @@
-import { NavLink, Outlet } from "react-router";
+import { Outlet } from "react-router";
 import "./App.css";
 import Footer from "./Component/footer/Footer.jsx";
 import Header from "./Component/header/Header.jsx";
@@ -9,10 +9,7 @@ function App() {
     <>
       <header>
         <Header/>
-        <NavLink to={"/"}>Home</NavLink>
-        <NavLink to={"/contact"}>Contact</NavLink>
-        <NavLink to={"/menu"}>Menu</NavLink>
-        <NavLink to={"/signIn"}>Sign in</NavLink>
+  
       </header>
       <main>
         <Outlet />
