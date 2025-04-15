@@ -1,0 +1,44 @@
+.menu-toggle {
+    position: absolute;
+    right: 4em; 
+    cursor: pointer;
+}
+.nav-links {
+    position:relative;
+    top: 100%; 
+    right: 3em;
+    padding: 10px;
+    width:400px;
+
+}
+.nav-links ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+  
+.nav-links li {
+    margin: 0.1em 0;
+    padding: 8px 8px;
+    background-color: black;
+    opacity: 0.7;
+    border-radius: 5px;
+    border: 1px solid #000000;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+    width: 100%;
+}
+.nav-links li:hover {
+    background-color: #363535;
+}
+  
+.nav-links a {
+    font-family: 'merriweather', sans-serif;
+    font-size: 28px;
+    font-weight: bold;
+    color: white;
+    display: block;
+    text-align: center;
+    padding: 0.3em 0.5em;
+}
+

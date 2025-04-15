@@ -5,8 +5,13 @@
     background-color: rgba(0, 0, 0, 0.5);
     display: flex;
     align-items: center;
-    justify-content: center; /* Centerar loggan */
+    justify-content: center; 
     padding: 1em;
+    background-image: url('../../assets/headerImage.png'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-blend-mode: darken;
 }
   
 .logo-container {
@@ -14,6 +19,7 @@
     justify-content: center;
     align-items: center;
     width: 100%;
+    padding: 0 1em;
 }
   
 .logo {
@@ -27,11 +33,13 @@
     right: 1em;
     top: 50%;
     transform: translateY(-50%);
-    width: 34px;
-    height: 36px;
-    width: clamp(20px, 6vw, 32px);
+    height: 42px;
+    width: clamp(20px, 6vw, 40px);
     transition: all 0.5s ease-in-out;
     cursor: pointer;
-    margin-right: 1.5em;
+    margin-right: 0.5em;
+    color: white;
+    padding: 0.5em;
 }
+
   

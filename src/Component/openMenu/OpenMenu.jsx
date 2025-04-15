@@ -1,27 +1,20 @@
-import React, { useState } from 'react';
 
-const OpenMenu = () => {
+import React from 'react';
+import './OpenMenu.css';
 
-    const [menuOpen, setMenuOpen] = useState(false);
-    const toggleMenu = () => {
-      setMenuOpen(!menuOpen);
-    };
-  
-    
-    return (
+const OpenMenu = ({ isOpen }) => {
+  if (!isOpen) return null;
 
-        <div className="menu-toggle" onClick={toggleMenu}>
-          {menuOpen && (
-            <nav className="nav-links">
-              <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Contact</a></li>
-                <li><a href="#">Menu</a></li>
-                <li><a href="#">Sign in</a></li>
-              </ul>
-            </nav>
-          )}
-        </div>
-);
-}
+  return (
+    <nav className="nav-links">
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">Menu</a></li>
+        <li><a href="#">Sign In</a></li>
+      </ul>
+    </nav>
+  );
+};
+
 export default OpenMenu;

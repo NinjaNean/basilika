@@ -8,11 +8,7 @@ function App() {
   return (
     <>
       <header>
-        <Header/>
-        <NavLink to={"/"}>Home</NavLink>
-        <NavLink to={"/contact"}>Contact</NavLink>
-        <NavLink to={"/menu"}>Menu</NavLink>
-        <NavLink to={"/signIn"}>Sign in</NavLink>
+        <Header />
       </header>
       <main>
         <Outlet />
