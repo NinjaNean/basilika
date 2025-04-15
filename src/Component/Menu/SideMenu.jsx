@@ -1,21 +1,19 @@
 import React from "react";
-import { menuData } from "../../data/menuData";
+import sideMenuImg from "../../assets/meny-side.svg";
 
 function SideMenu() {
-  //   const sideMenu = ["Sushi", "Dumplings", "Snacks", "Drycker"];
-  // const sideMenu = menuData.category;
+  const sideMenu = ["Sushi", "Dumplings", "Snacks", "Drycker"];
 
   return (
-    <div>
-      <h2>dewufjoeqwfkwe</h2>
-      {/* {sideMenu.map((category) => {
+    <div className="side-menu">
+      {sideMenu.map((category) => {
         return (
-          <div>
-            <img src="" alt="" />
-            <h3></h3>
+          <div className="side-menu-option" key={category}>
+            <img scr={sideMenuImg} alt="Chopsticks" />
+            <h3>{category}</h3>
           </div>
         );
-      })} */}
+      })}
     </div>
   );
 }
