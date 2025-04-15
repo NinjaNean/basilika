@@ -1,5 +1,5 @@
 import React from "react";
-// import sideMenuImg from "../../assets/chopsticks.svg"
+import sideMenuImg from "../../assets/meny-side.svg";
 
 function SideMenu() {
   const sideMenu = ["Sushi", "Dumplings", "Snacks", "Drycker"];
@@ -9,7 +9,7 @@ function SideMenu() {
       {sideMenu.map((category) => {
         return (
           <div className="side-menu-option" key={category}>
-            {/* <img scr={sideMenuImg} alt="Chopsticks" /> */}
+            <img src={sideMenuImg} alt="Chopsticks" />
             <h3>{category}</h3>
           </div>
         );
