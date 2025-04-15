@@ -1,0 +1,49 @@
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    height: 60px; 
+    padding: 2em 2em;
+
+    width: 100%
+}
+  
+.menu-toggle {
+    position: absolute;
+    right: 4em; 
+    cursor: pointer;
+}
+.menu-icon {
+    width: 24px;
+    height: 26px;
+   
+    transition: all 0.3s ease-in-out;
+}
+.nav-links {
+    position: absolute;
+    top: 100%; 
+    left: -2em;
+    padding: 10px 0;
+    width: 90px;
+    z-index: 10;
+}
+.nav-links ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+  
+.nav-links li {
+    padding: 8px 8px;
+}
+.nav-links li:hover {
+    background-color: #9c9898;
+}
+  
+.nav-links a {
+    font-size: 18px;
+    color: #000000;
+    display: block;
+    text-align: center;
+}

@@ -1,4 +1,4 @@
-import '../footer/Footer.css';
+import './Footer.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTwitter, faFacebook, faInstagram } from '@fortawesome/free-brands-svg-icons'; 
 import smallMap from '../../assets/smallMap.png';
