@@ -1,7 +1,7 @@
 import React from "react";
 import MenuItem from "./MenuItem";
 import infoImg from "../../assets/information-svg.svg";
-import { menuData } from "../../Data.js/menuData.js";
+import { menuData } from "../../data/menuData.js";
 
 function Menu() {
   return (
@@ -13,6 +13,7 @@ function Menu() {
 
       {menuData.map((foodItem) => {
         return (
+          //om useState "tom" != foodItem.category då renderas h2 och useState byter värde.
           <MenuItem
             key={foodItem.id}
             name={foodItem.name}

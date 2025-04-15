@@ -1,3 +1,14 @@
+.menu-page {
+  display: grid;
+  grid-template-columns: 30% 70%;
+  gap: 1rem;
+}
+
+.menu-hero-img {
+  grid-column: span 2;
+  max-width: 100vw;
+}
+
 .menu {
   background: var(--dark-red);
   color: var(--white-color);

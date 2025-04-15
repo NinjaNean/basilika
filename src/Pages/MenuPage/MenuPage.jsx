@@ -1,9 +1,13 @@
-import Menu from "../../Component/Menu/Menu.jsx";
+import Menu from "../../component/Menu/Menu.jsx";
+import SideMenu from "../../component/Menu/SideMenu.jsx";
 import "./Menu.css";
+import heroImg from "../../assets/TemptAsian-Page-Header_1920x600-2.webp";
 
 function MenuPage() {
   return (
-    <div>
+    <div className="menu-page">
+      <img className="menu-hero-img" src={heroImg} alt="" />
+      <SideMenu />
       <Menu />
     </div>
   );

@@ -85,7 +85,7 @@ export const menuData = [
 		"category": "Dumplings",
 		"price": 68,
 		"description": "Kryddiga dumplings fyllda med kimchi och tofu.",
-        "img": ""
+        "img": "https://inthekitch.net/wp-content/uploads/Kimchi-Dumplings-1.jpg"
 	},
 	{
 		"id": 12,
@@ -198,7 +198,16 @@ export const menuData = [
         "category": "Drycker",
         "price": 38,
         "description": "Svalkande iste med smak av litchi.",
-        "img": "httphttps://cdn.foodaciously.com/static/recipes/6a8cad49-6315-416d-995f-9c6861996228/lychee-iced-tea-b5557cf2e58ecc5f0615a1812e98bc0b-1920-q80.jpgs://www.google.com/url?sa=i&url=https%3A%2F%2Fteasenz.eu%2Fsv%2Fblogs%2Ftea-magazine%2Ficed-lychee-jasmine-tea-recipe&psig=AOvVaw1_8aixvCzN4l88drChjTbC&ust=1744452956789000&source=images&cd=vfe&opi=89978449&ved=0CBUQjRxqFwoTCKi3qoXgz4wDFQAAAAAdAAAAABAE"
-    },        
+        "img": "https://teasenz.eu/cdn/shop/articles/WechatIMG148.jpg?v=1688804145"
+    },  
+    {
+        "id": 26,
+        "name": "Thai Basil",
+        "category": "Drycker",
+        "price": 42,
+        "description": "Uppfriskande dryck med lime, sockerlag och färsk thailändsk basilika – perfekt för varma dagar.",
+        "img": "https://nerdswithknives.com/wp-content/smush-webp/2020/07/thai-basil-gimlet-2-55-1024x1024.jpg.webp" 
+    }
+          
   ]
   
