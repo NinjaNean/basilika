@@ -42,6 +42,14 @@
     display: flex;
     gap: 1rem;
     align-items: center;
+
+    button {
+      background: transparent;
+      border: none;
+      cursor: pointer;
+
+    
+    }
   }
 }
 

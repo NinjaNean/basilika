@@ -4,6 +4,12 @@ import minusImg from "../../assets/minus-svg.svg";
 import plusImg from "../../assets/plus-svg.svg";
 
 function MenuItem({ name, price, description, img }) {
+
+  function handleClick() {
+    // tillfällig
+    return;
+  }
+
   return (
     <div className="menu-item">
       <div>
@@ -16,9 +22,9 @@ function MenuItem({ name, price, description, img }) {
       <div>
         <p>{price}:-</p>
         <div className="cart-buttons">
-          <img src={plusImg} alt="plus icon" />
+         <button onClick={handleClick}><img src={plusImg} alt="plus icon" /></button>
           <p>0</p>
-          <img src={minusImg} alt="minus icon" />
+         <button onClick={handleClick}><img src={minusImg} alt="minus icon" /></button>
         </div>
       </div>
       <img src={img} alt="food picture" />
