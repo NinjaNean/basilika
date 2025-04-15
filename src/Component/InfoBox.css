@@ -32,4 +32,57 @@
 	object-fit: cover;
 	border-radius: 8px;
   }
+  @media (max-width: 320px) {
+	.info-container {
+	  flex-direction: column;
+	  padding: 10px;
+	}
+  
+	.left-section, .right-box {
+	  width: 100%;
+	}
+  
+	.oppet {
+	  font-size: 30px;
+	}
+  
+	.besok {
+	  font-size: 25px;
+	}
+  }
+  @media (max-width: 750px) {
+	.info-container {
+	  flex-direction: column;
+	  padding: 15px;
+	}
+  
+	.left-section, .right-box {
+	  width: 100%;
+	}
+  
+	.oppet {
+	  font-size: 35px;
+	}
+  
+	.besok {
+	  font-size: 28px;
+	}
+  }
+  @media (max-width: 1100px) {
+	.left-section {
+	  width: 55%;
+	}
+  
+	.right-box {
+	  width: 40%;
+	}
+  
+	.oppet {
+	  font-size: 40px;
+	}
+  
+	.besok {
+	  font-size: 32px;
+	}
+  }
   
