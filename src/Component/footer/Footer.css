@@ -5,14 +5,17 @@
     position: absolute;
     height: auto;
     font-family: 'Merriweather', sans-serif;
+    width: 100%;
+    padding: 0.1em 0.1em;
 }
 .footer-container {
     display: flex;
     flex-direction: row;
-
     flex-wrap: wrap;
     background-color: #333333;
     color: white;
+    padding: 0.1em 0.1em;
+    
 }
 .footer-section{
     display: flex;
@@ -76,10 +79,10 @@
         margin: 0.1em;
     }
 }
-h4.basil-header {
-    font-size: 17px;
-    color: #DCA537;
-    text-align: left;
+.footer-heading1 .small-logo{
+    width: 120px;
+    height: 30px;
+    
 }
 
 .footer-font {

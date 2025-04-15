@@ -2,7 +2,7 @@ import './Footer.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTwitter, faFacebook, faInstagram } from '@fortawesome/free-brands-svg-icons'; 
 import smallMap from '../../assets/smallMap.png';
-
+import smallLogo from '../../assets/smallLogo.png';
 
 
 const Footer = () => {
@@ -12,7 +12,8 @@ const Footer = () => {
 
             <section className='footer-section'>
                 <div className="footer-heading1">
-                    <h4 className='basil-header'>Basil</h4>  
+
+                    <img src={smallLogo} alt="Logo" className="small-logo" />
                     <p className='footer-text first'>Visit us in Gothenburg and taste our dishes with origin in asian cuisine</p>
                 </div>
 

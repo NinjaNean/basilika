@@ -1,49 +1,37 @@
 .header-container {
+    position: relative;
+    height: 200px;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
     display: flex;
     align-items: center;
+    justify-content: center; /* Centerar loggan */
+    padding: 1em;
+}
+  
+.logo-container {
+    display: flex;
     justify-content: center;
-    position: relative;
-    height: 60px; 
-    padding: 2em 2em;
-
-    width: 100%
+    align-items: center;
+    width: 100%;
 }
   
-.menu-toggle {
-    position: absolute;
-    right: 4em; 
+.logo {
     cursor: pointer;
+    width: clamp(150px, 40%, 300px); 
+    
 }
+  
 .menu-icon {
-    width: 24px;
-    height: 26px;
-   
-    transition: all 0.3s ease-in-out;
-}
-.nav-links {
     position: absolute;
-    top: 100%; 
-    left: -2em;
-    padding: 10px 0;
-    width: 90px;
-    z-index: 10;
-}
-.nav-links ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-  
-.nav-links li {
-    padding: 8px 8px;
-}
-.nav-links li:hover {
-    background-color: #9c9898;
+    right: 1em;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 34px;
+    height: 36px;
+    width: clamp(20px, 6vw, 32px);
+    transition: all 0.5s ease-in-out;
+    cursor: pointer;
+    margin-right: 1.5em;
 }
   
-.nav-links a {
-    font-size: 18px;
-    color: #000000;
-    display: block;
-    text-align: center;
-}
