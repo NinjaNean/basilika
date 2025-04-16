@@ -77,30 +77,47 @@
     font-size: 1.2rem;
     cursor: pointer;
     transition: transform 0.2s, background-color 0.2s;
-  }
+}
   
-  .increase-btn:hover,
-  .decrease-btn:hover {
+.increase-btn:hover,
+.decrease-btn:hover {
     background-color: rgb(215, 54, 54);;
     transform: scale(1.1);
-  }
+}
   
-  .button-box p {
+.button-box p {
     font-size: 1rem;
     color: #333;
     margin: 0;
-  }
+}
   
-  .totalprice-box {
+.totalprice-box {
     margin-top: 20px;
     text-align: center;
-  }
+}
   
-  .totalprice-box h3 {
+.totalprice-box h3 {
     font-size: 22px;
     font-weight: 600;
     color: #333;
     margin-bottom: 15px;
-  }
+}
   
- 
+.checkout-btn {
+    background-color: rgb(215, 54, 54); 
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    padding: 12px 30px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.2s;
+    width: 100%;
+    max-width: 200px;
+}
+  
+.checkout-btn:hover {
+    background-color: #e55a50;
+    transform: translateY(-2px);
+}
