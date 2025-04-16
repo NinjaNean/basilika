@@ -3,6 +3,7 @@ import "./App.css";
 import Footer from "./Component/footer/Footer.jsx";
 import Header from "./Component/header/Header.jsx";
 import OpenMenu from "./Component/openMenu/OpenMenu.jsx";
+import Cart from "./Component/cart/Cart.jsx";
 
 
 
@@ -17,7 +18,8 @@ function App() {
         <Outlet />
       </main>
       <footer>
-        <Footer/>
+        {/* <Footer/> */}
+        <Cart/>
       </footer>
     </>
   );
