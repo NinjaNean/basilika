@@ -1,26 +1,29 @@
 import { create } from "zustand";
+import { menuData } from "../menuData";
 
 const useCartStore = create((set) => ({
   kundvagn: [],
+  totalPrice: 0,
+  foodDataList: menuData,
 
-  addToCart: (menuItem) =>
-    set((state) => {
-      const alreadyInCart = state.kundvagn.find((item) => item.id === menuItem.id);
+  addToCart: (menuOption) => {
+    //Om menuOption.id finns
+    //Addera priset på produkten med samma id
 
-      if (alreadyInCart) {
-        // Om menuItem finns ska den adderas
-        // return { kundvagn: state.kundvagn.map((item) =>
-        // item.id === menuItem.id ? { ...item, qty: item.qty + 1} : item ), };
-        //)
-      } else {
-        //om inte menuItem finns ska den minskas eller tas bort
-        return console.log("finns inte");
-      }
-    }),
+    //Om inte
+    //Lägg till id och pris i listan
 
-  // removeFromCart:
+    set((state) => ({
+      kundvagn: [...state.kundvagn, { id: menuOption.id, price: menuOption.price }],
+    }));
+  },
 
-  // totalPrice:
+  removeFromCart: (menuOption) => {},
 }));
 
-export default { useCartStore };
+export default useCartStore;
+
+//Function som räknar ihop totala priset på allt som ligger i kundvagn.
+function sum(a, b) {
+  return a + b;
+}

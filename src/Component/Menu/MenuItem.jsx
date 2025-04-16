@@ -4,8 +4,6 @@ import minusImg from "../../assets/minus-svg.svg";
 import plusImg from "../../assets/plus-svg.svg";
 import useCartStore from "../../data/store/cartStore";
 
-// name, price, description, img, allergens
-
 function MenuItem({ foodItem }) {
   const [isVisible, setIsVisible] = useState(false);
   const addToCart = useCartStore((state) => state.addToCart);

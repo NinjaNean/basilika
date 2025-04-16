@@ -185,7 +185,7 @@ export const menuData = [
     category: "Drycker",
     price: 35,
     description: "Klassiskt asiatisk te med blomdoftande jasmin.",
-    img: "https://img.pixers.pics/pho_wat(s3:700/FO/64/70/39/40/700_FO64703940_a5996be04ded394c37a6d1f7c017732b.jpg.jpg",
+    img: "https://cdn-us0.puzzlegarage.com/img/puzzle/12/18706_preview.v1.jpg",
     allergens: [],
   },
   {
