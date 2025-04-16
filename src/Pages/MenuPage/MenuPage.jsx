@@ -7,8 +7,10 @@ function MenuPage() {
   return (
     <div className="menu-page">
       <img className="menu-hero-img" src={heroImg} alt="" />
-      <SideMenu />
-      <Menu />
+      <div className="menu-grid">
+        <SideMenu />
+        <Menu />
+      </div>
     </div>
   );
 }

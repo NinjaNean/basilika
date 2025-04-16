@@ -1,5 +1,5 @@
-import React from "react";
-import MenuItem from "./MenuItem";
+import React, { useState } from "react";
+import MenuItem from "./MenuItem.jsx";
 import infoImg from "../../assets/information-svg.svg";
 import { menuData } from "../../data/menuData.js";
 
@@ -20,6 +20,7 @@ function Menu() {
             price={foodItem.price}
             description={foodItem.description}
             img={foodItem.img}
+            id={foodItem.id}
           />
         );
       })}

@@ -1,9 +1,9 @@
 .menu-page {
-  display: grid;
   color: var(--white-color);
-  grid-template-columns: 30% 70%;
-  gap: 1rem;
   background-color: var(--dark-background);
+  max-width: 1920px;
+  margin: auto;
+  padding-bottom: 1rem;
 }
 
 .menu-hero-img {
@@ -11,10 +11,17 @@
   max-width: 100%;
 }
 
+.menu-grid {
+  display: grid;
+  grid-template-columns: 30% 70%;
+  margin: 2rem;
+}
+
 .menu {
   background: var(--dark-red);
   color: var(--white-color);
   padding: 1rem;
+  border-radius: 0.5rem;
 }
 
 .allergen-info {
@@ -31,11 +38,25 @@
   border-bottom: 1px solid var(--white-color);
   padding: 1rem;
 
-  > img {
-    max-width: 200px;
-    aspect-ratio: 4/3;
-    object-fit: cover;
-    border-radius: 5px;
+  &:last-child {
+    border-bottom: none;
+  }
+
+  .menu-flex {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+
+    p {
+      text-align: center;
+    }
+
+    > img {
+      max-width: 200px;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      border-radius: 5px;
+    }
   }
 
   .cart-buttons {
@@ -47,8 +68,6 @@
       background: transparent;
       border: none;
       cursor: pointer;
-
-    
     }
   }
 }
