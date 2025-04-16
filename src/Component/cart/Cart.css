@@ -121,3 +121,21 @@
     background-color: #e55a50;
     transform: translateY(-2px);
 }
+.checkout-btn {
+    background-color: rgb(215, 54, 54); 
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    padding: 12px 30px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.2s;
+    width: 100%;
+    max-width: 200px;
+  }
+  
+  .checkout-btn:hover {
+    background-color: #e55a50;
+    transform: translateY(-2px);
+  }
