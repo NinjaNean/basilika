@@ -8,6 +8,7 @@ import Contact from "./Pages/Contact.jsx";
 import MenuPage from "./Pages/MenuPage/MenuPage.jsx";
 import SignIn from "./Pages/SignIn.jsx";
 
+
 let router = createHashRouter([
   {
     path: "/",
