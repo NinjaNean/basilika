@@ -4,11 +4,15 @@
     cursor: pointer;
 }
 .nav-links {
-    position:relative;
-    top: 100%; 
-    right: 3em;
-    padding: 10px;
-    width:400px;
+    display: block;
+    background-color: white;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+    padding: 1rem;
+
 
 }
 .nav-links ul {

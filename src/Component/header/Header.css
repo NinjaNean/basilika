@@ -3,15 +3,12 @@
     height: 200px;
     width: 100%;
     background-color: rgba(0, 0, 0, 0.5);
+    /* background: transparent; */
     display: flex;
     align-items: center;
     justify-content: center; 
     padding: 1em;
-    background-image: url('../../assets/headerImage.png'); 
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-blend-mode: darken;
+  
 }
   
 .logo-container {
