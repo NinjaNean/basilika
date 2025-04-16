@@ -13,14 +13,14 @@ const OpenMenu = () => {
   console.log("isOpen:", isOpen);
 
   return (
-    <nav className="nav-links" onClick={closeMenu}>
+    <div className="nav-links" onClick={closeMenu}>
       <ul onClick={closeMenu}>
         <li><NavLink to="/">Home</NavLink></li>
         <li><NavLink to="/contact">Contact</NavLink></li>
         <li><NavLink to="/menu">Menu</NavLink></li>
         <li><NavLink to="/signin">Sign In </NavLink></li>
       </ul>
-    </nav>
+    </div>
   );
 };
 
