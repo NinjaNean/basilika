@@ -1,0 +1,98 @@
+.menu-page {
+  color: var(--white-color);
+  background-color: var(--dark-background);
+  max-width: 1920px;
+  margin: auto;
+  padding-bottom: 1rem;
+}
+
+.menu-hero-img {
+  grid-column: span 2;
+  max-width: 100%;
+}
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: 30% 70%;
+  margin: 2rem;
+}
+
+.menu {
+  background: var(--dark-red);
+  color: var(--white-color);
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+
+.allergen-info {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.menu-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  border-bottom: 1px solid var(--white-color);
+  padding: 1rem;
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  .menu-flex {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+
+    p {
+      text-align: center;
+    }
+
+    > img {
+      max-width: 200px;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      border-radius: 5px;
+    }
+  }
+
+  .cart-buttons {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+
+    button {
+      background: transparent;
+      border: none;
+      cursor: pointer;
+    }
+  }
+}
+
+.side-menu {
+  position: sticky;
+  top: 1rem;
+  max-height: fit-content;
+}
+
+.side-menu-option {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+
+  .chopstick-img {
+    fill: var(--white-color);
+  }
+
+  h3 {
+    font-weight: bold;
+
+    &:hover {
+      color: var(--dark-red);
+      cursor: pointer;
+    }
+  }
+}
