@@ -1,0 +1,22 @@
+:root {
+  --dark-red: #511013;
+  --dark-background: #151515;
+  --white-color: #e4e4e4;
+  --black-color: black;
+}
+
+* {
+  font-family: "Merriweather Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}
+
+body {
+  overflow-x: hidden;
+  margin: 0;
+}
+
+main {
+  max-width: 100vw;
+}

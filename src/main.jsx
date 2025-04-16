@@ -5,8 +5,9 @@ import App from "./App.jsx";
 import { createHashRouter, RouterProvider } from "react-router-dom";
 import Home from "./Pages/Home.jsx";
 import Contact from "./Pages/Contact.jsx";
-import Menu from "./Pages/Menu.jsx";
+import MenuPage from "./Pages/MenuPage/MenuPage.jsx";
 import SignIn from "./Pages/SignIn.jsx";
+
 
 let router = createHashRouter([
   {
@@ -23,7 +24,7 @@ let router = createHashRouter([
       },
       {
         path: "/menu",
-        Component: Menu,
+        Component: MenuPage,
       },
       {
         path: "/signin",
