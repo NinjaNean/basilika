@@ -14,7 +14,7 @@ const Footer = () => {
                 <div className="footer-heading1">
 
                     <img src={smallLogo} alt="Logo" className="small-logo" />
-                    <p className='footer-text first'>Visit us in Gothenburg and taste our dishes with origin in asian cuisine</p>
+                    <p className='footer-text first'>Taste our dishes with origin in asian cuisine</p>
                 </div>
 
                 <div className="footer-heading1">
