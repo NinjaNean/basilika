@@ -7,21 +7,23 @@ const Cart = () => {
         <div className='cart-section'>
             <section className='cart-item-content'>
               <div className='cart-item'>
-              <img>{}</img>
-                <h3>{}vald maträtt</h3>
-                <p>{}ingredients</p>
+                <img src="" alt="bild" />
+                <div className='name-ingredient'>
+                 <h3>{}vald maträtt</h3>
+                < p>{}ingredients</p>
+                </div>
             
                 <div className='button-box'>
                 
                 <button className='increase-btn'>+</button>
-                <p>{}</p>
+                <p>{}1 sek</p>
                 <button className='decrease-btn'>-</button>
                 </div>
                 
               </div>
             </section>
                 <div className='totalprice-box'>
-                  <h3>Totalpris: {} SEK</h3>
+                  <h3>Totalprice: {} SEK</h3>
                   <button className='checkout-btn'>Buy</button>
                 </div>
             </div>
