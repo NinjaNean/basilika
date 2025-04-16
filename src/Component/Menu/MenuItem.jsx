@@ -2,46 +2,45 @@ import React, { useState } from "react";
 import infoImg from "../../assets/information-svg.svg";
 import minusImg from "../../assets/minus-svg.svg";
 import plusImg from "../../assets/plus-svg.svg";
+import useCartStore from "../../data/store/cartStore";
 
-function MenuItem({ name, price, description, img, id }) {
-  const [order, setOrder] = useState([
-    {
-      // price: 56+56-56
-      // id: 12
-    },
-  ]);
+// name, price, description, img, allergens
 
-  function handleClick(operator, price, id) {
-    console.log(price, id);
-
-    if (operator === "+") {
-    } else if (operator === "-") {
-    }
-  }
+function MenuItem({ foodItem }) {
+  const [isVisible, setIsVisible] = useState(false);
+  const addToCart = useCartStore((state) => state.addToCart);
 
   return (
     <div className="menu-item">
       <div>
         <h2>
-          {name} <img src={infoImg} alt="information icon" />
+          {foodItem.name}{" "}
+          <img
+            className="tooltip-container"
+            onMouseEnter={() => setIsVisible(true)}
+            onMouseLeave={() => setIsVisible(false)}
+            src={infoImg}
+            alt="information icon"
+          />
+          {isVisible && <span className="tooltip">{foodItem.allergens}</span>}
         </h2>
-        <p>{description}</p>
+        <p>{foodItem.description}</p>
       </div>
 
       <div className="menu-flex">
         <div>
-          <p>{price}:-</p>
+          <p>{foodItem.price}:-</p>
           <div className="cart-buttons">
-            <button onClick={() => handleClick("+", price, id)}>
+            <button onClick={() => addToCart(foodItem)}>
               <img src={plusImg} alt="plus icon" />
             </button>
             <p>0</p>
-            <button onClick={() => handleClick("-", price, id)}>
+            <button>
               <img src={minusImg} alt="minus icon" />
             </button>
           </div>
         </div>
-        <img src={img} alt="food picture" />
+        <img src={foodItem.img} alt="food picture" />
       </div>
     </div>
   );

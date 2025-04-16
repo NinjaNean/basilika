@@ -14,14 +14,7 @@ function Menu() {
       {menuData.map((foodItem) => {
         return (
           //om useState "tom" != foodItem.category då renderas h2 och useState byter värde.
-          <MenuItem
-            key={foodItem.id}
-            name={foodItem.name}
-            price={foodItem.price}
-            description={foodItem.description}
-            img={foodItem.img}
-            id={foodItem.id}
-          />
+          <MenuItem key={foodItem.id} foodItem={foodItem} />
         );
       })}
     </div>
