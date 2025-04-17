@@ -6,7 +6,7 @@ import useCartStore from "../../data/store/cartStore";
 
 function MenuItem({ foodItem }) {
   const [isVisible, setIsVisible] = useState(false);
-  const addToCart = useCartStore((state) => state.addToCart);
+  const { addToCart, removeFromCart } = useCartStore();
 
   return (
     <div className="menu-item">
@@ -33,7 +33,7 @@ function MenuItem({ foodItem }) {
               <img src={plusImg} alt="plus icon" />
             </button>
             <p>0</p>
-            <button>
+            <button onClick={() => removeFromCart(foodItem)}>
               <img src={minusImg} alt="minus icon" />
             </button>
           </div>
