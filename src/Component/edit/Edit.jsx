@@ -4,7 +4,8 @@ import '../edit/Edit.css'
 
 
 
-const Edit = () => {
+const Edit = ({editItem}) => {
+    const [menuItems, setMenuItems] = useState(menuData)
     const [editId, setEditId] = useState(null)
 	const [newName, setNewName] = useState('')
 	const [newCat, setNewCat] = useState('')
@@ -19,11 +20,11 @@ const Edit = () => {
         setNewPrice(price)
         setNewDesc(description)
         setNewImg(img)
+    
 	}
 	const handleSave = (id) => {
-        
 		setEditId(null)
-		editCity(id, newName, newCat, newPrice, newDesc, newImg)
+		setMenuItems(id, newPrice , newName, newCat, newDesc, newImg)
 	}
 
 	return (
@@ -48,7 +49,7 @@ const Edit = () => {
                 ) : (
                     <>
                         <span>{name}</span>
-                        <button className='save-button' onClick={() => handleEditItem(id, name, category, price, description, img)}>edit</button>
+                        <button className='save-button' onClick={() => handleEditItem(id, name, category, price, description, img)}>change</button>
                     </>
                 )}
             </li>
