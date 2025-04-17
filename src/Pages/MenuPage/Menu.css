@@ -76,13 +76,18 @@
 
   .cart-buttons {
     display: flex;
-    gap: 1rem;
     align-items: center;
 
     button {
       background: transparent;
       border: none;
       cursor: pointer;
+      display: flex;
+    }
+
+    p {
+      min-width: 30px;
+      margin: 0;
     }
   }
 }

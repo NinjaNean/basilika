@@ -6,7 +6,15 @@ import useCartStore from "../../data/store/cartStore";
 
 function MenuItem({ foodItem }) {
   const [isVisible, setIsVisible] = useState(false);
-  const { addToCart, removeFromCart } = useCartStore();
+  const { addToCart, removeFromCart, cart } = useCartStore();
+
+  const num = cart.find((item) => {
+    if (item === undefined) {
+      return;
+    } else {
+      return item.id === foodItem.id;
+    }
+  });
 
   return (
     <div className="menu-item">
@@ -32,7 +40,7 @@ function MenuItem({ foodItem }) {
             <button onClick={() => addToCart(foodItem)}>
               <img src={plusImg} alt="plus icon" />
             </button>
-            <p>0</p>
+            <p>{num?.quantity ?? 0}</p>
             <button onClick={() => removeFromCart(foodItem)}>
               <img src={minusImg} alt="minus icon" />
             </button>

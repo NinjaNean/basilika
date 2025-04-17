@@ -4,12 +4,12 @@ import infoImg from "../../assets/information-svg.svg";
 import useCartStore from "../../data/store/cartStore.js";
 
 function Menu() {
-  const { foodDataList, kundvagn } = useCartStore();
+  const { foodDataList, totalPrice } = useCartStore();
 
   //För felsökning
   useEffect(() => {
-    console.log(kundvagn);
-  }, [kundvagn]);
+    console.log(totalPrice);
+  }, [totalPrice]);
 
   return (
     <div className="menu">
