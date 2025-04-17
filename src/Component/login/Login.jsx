@@ -1,19 +1,19 @@
-import React, { useState } from 'react';
-import './Login.css';
-import { FaLock } from 'react-icons/fa';
-import { useNavigate } from 'react-router-dom'; // ✅ Import navigate hook
+import React, { useState } from "react";
+import "./Login.css";
+import { FaLock } from "react-icons/fa";
+import { useNavigate } from "react-router"; // ✅ Import navigate hook
 
 function Login() {
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
   const navigate = useNavigate(); // ✅ Initialize navigate
 
   const validate = () => {
     if (!password.trim()) {
-      setError('Password is required');
+      setError("Password is required");
       return false;
     }
-    setError('');
+    setError("");
     return true;
   };
 
@@ -21,8 +21,8 @@ function Login() {
     e.preventDefault();
     if (validate()) {
       // ✅ Mock login success
-      alert('Login successful (mock)');
-      navigate('/menu'); // ✅ Redirect to Menu page
+      alert("Login successful (mock)");
+      navigate("/menu"); // ✅ Redirect to Menu page
     }
   };
 
@@ -42,10 +42,11 @@ function Login() {
       </div>
       {error && <p className="error">{error}</p>}
 
-      <button type="submit" className="login-btn">Log In</button>
+      <button type="submit" className="login-btn">
+        Log In
+      </button>
     </form>
   );
 }
 
 export default Login;
-
