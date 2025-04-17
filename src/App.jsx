@@ -3,6 +3,8 @@ import "./App.css";
 import Footer from "./Component/footer/Footer.jsx";
 import Header from "./Component/header/Header.jsx";
 import OpenMenu from "./Component/openMenu/OpenMenu.jsx";
+import Edit from "./Component/edit/Edit.jsx";
+
 
 
 
@@ -18,7 +20,9 @@ function App() {
       </main>
       <footer>
         <Footer/>
+        
       </footer>
+      <Edit/>
     </>
   );
 }
