@@ -1,4 +1,6 @@
-import menuData from '../../data/menuData.js'
+import { menuData } from '../../data/menuData.js'
+import { useState } from 'react'
+import '../edit/Edit.css'
 
 
 
@@ -25,7 +27,34 @@ const Edit = () => {
 	}
 
 	return (
-		
+        <ul className="edit-container">
+        {menuData.map(({ id, name, category, price, description, img }) => (
+            <li className='edit-list' key={id}>
+                {editId === id ? (
+                    <>
+                        <input type="text" placeholder="name" value={newName} onChange={e => setNewName(e.target.value)} className='edit-input'/>
+
+                        <input type="text" placeholder="category" value={newCat} onChange={e => setNewCat(e.target.value)}className='edit-input' />
+
+                        <input type="number" placeholder="price" value={newPrice} onChange={e => setNewPrice(e.target.value)} className='edit-input'/>
+
+                        <input type="text" placeholder="description" value={newDesc} onChange={e => setNewDesc(e.target.value)} className='edit-input'/>
+
+                        <input type="text" placeholder="image" value={newImg} onChange={e => setNewImg(e.target.value)}className='edit-input' />
+
+                        <button className='edit-button' onClick={() => handleSave(id)}>save</button>
+                       
+                    </>
+                ) : (
+                    <>
+                        <span>{name}</span>
+                        <button className='save-button' onClick={() => handleEditItem(id, name, category, price, description, img)}>edit</button>
+                    </>
+                )}
+            </li>
+        ))}
+    </ul>
+    
 	)
 }
 
