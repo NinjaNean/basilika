@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router";
 import "./OpenMenu.css";
-import { useOpenMenuStore } from "../openMenu/store/openMenuStore.js";
+import { useOpenMenuStore } from "../../data/openMenuStore";
 
 const OpenMenu = () => {
   const isOpen = useOpenMenuStore((state) => state.isOpen);

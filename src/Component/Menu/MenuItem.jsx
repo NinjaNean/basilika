@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import infoImg from "../../assets/information-svg.svg";
 import minusImg from "../../assets/minus-svg.svg";
 import plusImg from "../../assets/plus-svg.svg";
-import useCartStore from "../../data/store/cartStore";
+import useCartStore from "../../data/cartStore";
 
 function MenuItem({ foodItem }) {
   const [isVisible, setIsVisible] = useState(false);

@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import MenuItem from "./MenuItem.jsx";
 import infoImg from "../../assets/information-svg.svg";
-import useCartStore from "../../data/store/cartStore.js";
+import useCartStore from "../../data/cartStore.js";
 
 function Menu() {
   const { foodDataList, totalPrice } = useCartStore();

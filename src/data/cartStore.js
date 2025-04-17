@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import { menuData } from "../menuData";
+import { menuData } from "./menuData";
 
 const useCartStore = create((set, get) => ({
   cart: [],

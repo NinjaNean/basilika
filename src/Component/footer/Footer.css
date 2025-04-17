@@ -1,95 +1,90 @@
 .footer {
-    position: relative;
-    height: auto;
-    font-family: 'Merriweather', sans-serif;
-    width: 100%;
-    padding: 0.1em;
+  position: relative;
+  height: auto;
+  font-family: "Merriweather", sans-serif;
+  width: 100%;
 }
 
 .footer-container {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center; 
-    align-items: center;
-    background-color: #333333;
-    color: white;
-    padding: 0.5em;
-    gap: 1.5em; 
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  background-color: #333333;
+  color: white;
+  padding: 2rem;
+  padding-bottom: 0;
 }
 
 .footer-section {
-    display: flex;
-    justify-content: center;
-    align-items: start;
-    flex-direction: row;
-    flex-wrap: wrap; 
-    padding: 0.8em;
-    margin: 0;
-    flex: 0 1 auto;
-    min-height: 155px; 
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 0;
+  flex: 0 1 auto;
+  min-height: 155px;
 }
 
 .footer-heading1 {
-    
-    display: flex;
-    flex-direction: column;
-    margin: 0; 
-    padding: 0.5em;
-    flex: 0 0 3em; 
-    gap: 3px; 
-    align-items: flex-start;
-    justify-content: flex-start;
-    
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0.5em;
+  flex: 0 0 3em;
+  gap: 3px;
+  align-items: flex-start;
+  justify-content: flex-start;
 
-    .footer-text {
-        font-size: 18px;
-        padding: 0.2em;
-        text-align: left;
-        width: 200px;
-        margin: 0;
-    }
+  .footer-text {
+    font-size: 18px;
+    padding: 0.2em;
+    text-align: left;
+    width: 200px;
+    margin: 0;
+  }
 
-    h4 {
-        color: #c3ab86;
-        margin: 0;
-        text-align: left;
-        font-size: 22px;
-        white-space: nowrap;
-    }
-    
+  h4 {
+    color: #c3ab86;
+    margin: 0;
+    text-align: left;
+    font-size: 22px;
+    white-space: nowrap;
+  }
 }
 
 .footer-font {
-    display: flex;
-    flex-direction: row;
-    gap: 10px;
-    justify-content: flex-start;
-    margin: 0.05em;
-    padding: 0.1em;
-    color: #c3ab86;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  justify-content: flex-start;
+  margin: 0.05em;
+  padding: 0.1em;
+  color: #c3ab86;
 
-    .fonts {
-        width: 16px;
-        height: 16px;
-    }
+  .fonts {
+    width: 16px;
+    height: 16px;
+  }
 }
 
 .footer-source {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 100%;
-    text-align: center;
-    padding: 0.1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  text-align: center;
+  padding: 0.1em;
 
-    .source {
-        font-size: 12px;
-        margin: 0.05em 0;
-        padding: 0.1em;
-    }
+  .source {
+    font-size: 12px;
+    margin: 0.05em 0;
+    padding: 1rem;
+  }
 }
 
 .fonts:hover {
-    cursor: pointer;
+  cursor: pointer;
 }

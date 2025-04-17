@@ -1,9 +1,8 @@
-import './Header.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars } from '@fortawesome/free-solid-svg-icons';
-import logo from '../../assets/logo.png'; 
-import { useOpenMenuStore } from '../openMenu/store/openMenuStore.js';
-
+import "./Header.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBars } from "@fortawesome/free-solid-svg-icons";
+import logo from "../../assets/logo.png";
+import { useOpenMenuStore } from "../../data/openMenuStore";
 
 const Header = () => {
   const toggleMenu = useOpenMenuStore((state) => state.toggleMenu);
@@ -15,12 +14,7 @@ const Header = () => {
         <img src={logo} alt="Logo" className="logo" />
       </div>
 
-      <FontAwesomeIcon
-        icon={faBars}
-        className="menu-icon"
-        onClick={toggleMenu}
-        
-      />
+      <FontAwesomeIcon icon={faBars} className="menu-icon" onClick={toggleMenu} />
     </header>
   );
 };

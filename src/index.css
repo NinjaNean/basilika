@@ -15,7 +15,8 @@
 
 body {
   overflow-x: hidden;
-  margin: 0;
+  margin: auto;
+  max-width: 1920px;
 }
 
 main {

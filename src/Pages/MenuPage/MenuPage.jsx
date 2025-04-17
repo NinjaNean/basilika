@@ -1,5 +1,5 @@
 import Menu from "../../component/Menu/Menu.jsx";
-import SideMenu from "../../component/Menu/SideMenu.jsx";
+import SideMenu from "../../Component/menu/SideMenu.jsx";
 import "./Menu.css";
 import heroImg from "../../assets/TemptAsian-Page-Header_1920x600-2.webp";
 
