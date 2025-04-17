@@ -1,9 +1,16 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
 import MenuItem from "./MenuItem.jsx";
 import infoImg from "../../assets/information-svg.svg";
-import { menuData } from "../../data/menuData.js";
+import useCartStore from "../../data/store/cartStore.js";
 
 function Menu() {
+  const { foodDataList, totalPrice } = useCartStore();
+
+  //För felsökning
+  useEffect(() => {
+    console.log(totalPrice);
+  }, [totalPrice]);
+
   return (
     <div className="menu">
       <p className="allergen-info">
@@ -11,18 +18,8 @@ function Menu() {
         Allergi information
       </p>
 
-      {menuData.map((foodItem) => {
-        return (
-          //om useState "tom" != foodItem.category då renderas h2 och useState byter värde.
-          <MenuItem
-            key={foodItem.id}
-            name={foodItem.name}
-            price={foodItem.price}
-            description={foodItem.description}
-            img={foodItem.img}
-            id={foodItem.id}
-          />
-        );
+      {foodDataList.map((foodItem) => {
+        return <MenuItem key={foodItem.id} foodItem={foodItem} />;
       })}
     </div>
   );
