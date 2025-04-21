@@ -24,17 +24,21 @@ main {
   border: none;
   background-color: #511013;
   color: white;
+  display: none;
 }
+
 
 .pencil {
   cursor: pointer;
   background-color: #511013;
   border: none;
+  color: white;
   
 }
 .fa-pencil {
   color: white;
-  width: 35px;
-  height: 18px;
- 
+  cursor: pointer;
+  width: 28px;
+  height: 20px;
+
 }

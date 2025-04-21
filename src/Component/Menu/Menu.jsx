@@ -5,6 +5,14 @@ import { menuData } from "../../data/menuData.js";
 
 function Menu() {
 
+  const [selectedImg, setSelectedImg] = useState(menuData[0].img)
+    const handleImageChange = (event) => {
+      const file = event.taget.files [0]
+      setSelectedImg(URL.createObjectURL(file))
+
+    }
+
+
   const [menuItems, setMenuItems] = useState(menuData);
   console.log(menuData)
   const changeActiveStateOnClick = (id) => {
@@ -42,6 +50,7 @@ function Menu() {
             id={foodItem.id}
             active={foodItem.active}
             changeActiveStateOnClick={changeActiveStateOnClick}
+            handleImageChange={handleImageChange}
           />
         );
       })}
