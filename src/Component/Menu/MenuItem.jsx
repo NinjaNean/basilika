@@ -25,7 +25,13 @@ function MenuItem({ name, price, description, img, id, active}) {
         <h2>
           {name} <img src={infoImg} alt="information icon" />
         </h2>
-        <p>{description}</p>
+        <input
+          type="text"
+          value={name}
+          disabled={!active}
+          id='nameInput'
+          />
+
       </div>
 
       {/* {här lägger vi till redigera ikon}  */}
