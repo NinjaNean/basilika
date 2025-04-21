@@ -1,0 +1,35 @@
+.home-page {
+  margin-bottom: -5px;
+  position: relative;
+
+  img {
+    width: 100%;
+    aspect-ratio: 4 / 2;
+    object-fit: cover;
+  }
+
+  div {
+    position: absolute;
+    top: 50%;
+    left: 45%;
+    color: var(--white-color);
+    max-width: 700px;
+    translate: -50% -50%;
+    font-size: xx-large;
+  }
+
+  button {
+    background-color: var(--red-color);
+    text-transform: uppercase;
+    border: 1px solid var(--red-color);
+    padding: 1rem 1.5rem;
+    color: var(--white-color);
+    font-size: 20px;
+    letter-spacing: 1px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: var(--dark-red);
+    }
+  }
+}
