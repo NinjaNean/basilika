@@ -25,23 +25,37 @@ function MenuItem({ name, price, description, img, id, active, changeActiveState
     <div className="menu-item">
       <div>
         <h2>
-          {name} <img src={infoImg} alt="information icon" />
+          {name}
+          <input
+          type="text"
+          value={name}
+          disabled={!active}
+          id='nameInput'
+          /> 
+          <img src={infoImg} alt="information icon" />
         </h2>
+        <p>{description}</p>
         <input
           type="text"
           value={description}
           disabled={!active}
-          id='nameInput'
+          id='descriptionInput'
           />
 
       </div>
 
-      {/* {här lägger vi till redigera ikon}  */}
-      <button className='pencil' onClick={() => changeActiveStateOnClick(id)}>{active ? 'spara' : <FontAwesomeIcon icon={faPencil} />} </button>
+      {/* {här lägger du till redigera ikon}  */}
+      <button className='pencil' onClick={() => changeActiveStateOnClick(id)}>{active ? 'spara' : <FontAwesomeIcon icon={faPencil} disabled />} </button>
 
       <div className="menu-flex">
         <div>
           <p>{price}:-</p>
+          <input
+          type="text"
+          value={price}
+          disabled={!active}
+          id='priceInput'
+          />
           <div className="cart-buttons">
             <button onClick={() => handleClick("+", price, id)}>
               <img src={plusImg} alt="plus icon" />
@@ -53,6 +67,12 @@ function MenuItem({ name, price, description, img, id, active, changeActiveState
           </div>
         </div>
         <img src={img} alt="food picture" />
+        <input
+          type="text"
+          value={img}
+          disabled={!active}
+          id='imgInput'
+          />
       </div>
     </div>
   );
