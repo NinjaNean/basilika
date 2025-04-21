@@ -37,12 +37,12 @@ function MenuItem({ foodItem }) {
         <div>
           <p>{foodItem.price}:-</p>
           <div className="cart-buttons">
-            <button onClick={() => addToCart(foodItem)}>
-              <img src={plusImg} alt="plus icon" />
+          <button onClick={() => removeFromCart(foodItem)}>
+              <img src={minusImg} alt="minus icon" />
             </button>
             <p>{num?.quantity ?? 0}</p>
-            <button onClick={() => removeFromCart(foodItem)}>
-              <img src={minusImg} alt="minus icon" />
+            <button onClick={() => addToCart(foodItem)}>
+              <img src={plusImg} alt="plus icon" />
             </button>
           </div>
         </div>
