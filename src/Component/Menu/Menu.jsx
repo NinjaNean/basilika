@@ -6,7 +6,7 @@ import useCartStore from "../../data/cartStore.js";
 function Menu() {
   const { foodDataList, totalPrice } = useCartStore();
   const categories = ["Sushi", "Dumplings", "Snacks", "Drycker"];
-  
+
   //För felsökning
   useEffect(() => {
     console.log(totalPrice);

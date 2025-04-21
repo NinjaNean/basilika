@@ -1,5 +1,5 @@
 import React from "react";
-import sideMenuImg from "../../assets/meny-side.svg";
+import sideMenuImg from "../../assets/chopsticks.svg";
 
 function SideMenu() {
   const sideMenu = ["Sushi", "Dumplings", "Snacks", "Drycker"];
