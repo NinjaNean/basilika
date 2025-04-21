@@ -8,6 +8,19 @@ function Menu() {
   const [menuItems, setMenuItems] = useState(menuData);
   console.log(menuData)
   const changeActiveStateOnClick = (id) => {
+      
+    const updatedMenuItems = menuItems.map(menu =>{
+      if (menu.id === id) {
+        menu.active = !menu.active
+        return menu
+      }
+      else {
+        return menu
+      }
+      
+    })
+    console.log(updatedMenuItems)
+    setMenuItems(updatedMenuItems)
 
   }
      return (
@@ -28,6 +41,7 @@ function Menu() {
             img={foodItem.img}
             id={foodItem.id}
             active={foodItem.active}
+            changeActiveStateOnClick={changeActiveStateOnClick}
           />
         );
       })}

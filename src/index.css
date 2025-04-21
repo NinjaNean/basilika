@@ -20,3 +20,21 @@ body {
 main {
   max-width: 100vw;
 }
+*:disabled {
+  border: none;
+  background-color: #511013;
+  color: white;
+}
+
+.pencil {
+  cursor: pointer;
+  background-color: #511013;
+  border: none;
+  
+}
+.fa-pencil {
+  color: white;
+  width: 35px;
+  height: 18px;
+ 
+}

@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import infoImg from "../../assets/information-svg.svg";
 import minusImg from "../../assets/minus-svg.svg";
 import plusImg from "../../assets/plus-svg.svg";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPencil } from '@fortawesome/free-solid-svg-icons';
 
-function MenuItem({ name, price, description, img, id, active}) {
+function MenuItem({ name, price, description, img, id, active, changeActiveStateOnClick}) {
   const [order, setOrder] = useState([
     {
       // price: 56+56-56
@@ -27,7 +29,7 @@ function MenuItem({ name, price, description, img, id, active}) {
         </h2>
         <input
           type="text"
-          value={name}
+          value={description}
           disabled={!active}
           id='nameInput'
           />
@@ -35,7 +37,7 @@ function MenuItem({ name, price, description, img, id, active}) {
       </div>
 
       {/* {här lägger vi till redigera ikon}  */}
-      <button>{active ? 'spara' : 'redigera'}</button>
+      <button className='pencil' onClick={() => changeActiveStateOnClick(id)}>{active ? 'spara' : <FontAwesomeIcon icon={faPencil} />} </button>
 
       <div className="menu-flex">
         <div>
