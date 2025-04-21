@@ -29,8 +29,8 @@ const Edit = ({editItem}) => {
 
 	return (
         <ul className="edit-container">
-        {menuData.map(({ id, name, category, price, description, img }) => (
-            <li className='edit-list' key={id}>
+        {menuItems.map(({ id, name, category, price, description, img }) => (
+            <td className='edit-list' key={id}>
                 {editId === id ? (
                     <>
                         <input type="text" placeholder="name" value={newName} onChange={e => setNewName(e.target.value)} className='edit-input'/>
@@ -52,7 +52,7 @@ const Edit = ({editItem}) => {
                         <button className='save-button' onClick={() => handleEditItem(id, name, category, price, description, img)}>change</button>
                     </>
                 )}
-            </li>
+            </td>
         ))}
     </ul>
     

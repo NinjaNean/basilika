@@ -1,45 +1,49 @@
 .edit-container {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-    padding: 20px;
-    margin: 20px;
-    gap: 10px;
-    width: 50%;
-    
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1rem;
+    max-width: 800px;
+    margin: 2rem auto;
 }
-.save-button {
-        background-color: #969a97;
-        color: white;
-        border: none;
-        padding: 5px 10px;
-        border-radius: 5px;
-        cursor: pointer;
-}
-    
-.edit-button {
-        background-color: #969a97;
-        color: white;
-        border: none;
-        padding: 5px 10px;
-        border-radius: 5px;
-        cursor: pointer;
+
+.edit-list {
+    background: #f9f9f9;
+    padding: 1rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    display: grid;
+    gap: 0.5rem;
 }
 
 .edit-input {
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 5px;
-    width: 200px;
-}
-
-li {
-    list-style: none;
-    display: flex;
-    align-items: flex-start;
-    justify-content: flex-start;
-    gap: 2em;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
     width: 100%;
+    font-size: 1rem;
 
+    span {
+        font-size: 18px;
+    }
 }
+
+.edit-button, .save-button {
+    width: 60%;
+    padding: 0.6rem 1.2rem;
+    background-color: #c02e35;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s;
+    font-weight: bold;
+    min-height: 40px;
+    max-height: 50px;
+}
+
+.edit-button:hover, .save-button:hover {
+    background-color: #575857;
+}
+
