@@ -2,11 +2,11 @@ import './Header.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import logo from '../../assets/logo.png'; 
-import { useOpenMenuStore } from '../openMenu/store/openMenuStore.js';
+import { useMenuStore } from '../../store/menuStore.js';
 
 
 const Header = () => {
-  const toggleMenu = useOpenMenuStore((state) => state.toggleMenu);
+  const toggleMenu = useMenuStore((state) => state.toggleMenu);
   console.log(toggleMenu);
 
   return (

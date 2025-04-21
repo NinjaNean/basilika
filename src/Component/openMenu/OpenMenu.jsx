@@ -1,13 +1,13 @@
 import React from 'react';
 import { NavLink} from "react-router";
 import './OpenMenu.css';
-import { useOpenMenuStore } from '../openMenu/store/openMenuStore.js';
+import { useMenuStore } from '../../store/menuStore.js';
 
 
 
 const OpenMenu = () => {
-  const isOpen = useOpenMenuStore((state) => state.isOpen);
-  const closeMenu = useOpenMenuStore((state) => state.closeMenu);
+  const isOpen = useMenuStore((state) => state.isOpen);
+  const closeMenu = useMenuStore((state) => state.closeMenu);
 
   if (!isOpen) return null;
   console.log("isOpen:", isOpen);

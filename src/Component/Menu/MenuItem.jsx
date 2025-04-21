@@ -4,14 +4,24 @@ import minusImg from "../../assets/minus-svg.svg";
 import plusImg from "../../assets/plus-svg.svg";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPencil } from '@fortawesome/free-solid-svg-icons';
+import { useEditMenuStore } from "../../store/menuStore.js";
 
-function MenuItem({ name, price, description, img, id, active, changeActiveStateOnClick, handleImageChange}) {
+function MenuItem({ name, price, description, img, id, active, changeActiveStateOnClick, }) {
   const [order, setOrder] = useState([
     {
       // price: 56+56-56
       // id: 12
     },
   ]);
+
+  const { name: storeName, description: storeDescription, price: storePrice, img: storeImg, setName, setDescription, setPrice, setImg } = useEditMenuStore();
+
+  const handleImageChange = (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      setImg(URL.createObjectURL(file));
+    }
+  };
 
   function handleClick(operator, price, id) {
     console.log(price, id);
@@ -28,35 +38,38 @@ function MenuItem({ name, price, description, img, id, active, changeActiveState
           {name}
           <input
           type="text"
-          value={name}
+          value={active ? storeName : name}
           disabled={!active}
           id='nameInput'
+          onChange={(e) => setName(e.target.value)}
           /> 
           <img src={infoImg} alt="information icon" />
         </h2>
         <p>{description}</p>
         <input
           type="text"
-          value={description}
+          value={active ? storeDescription : description}
           disabled={!active}
           id='descriptionInput'
+          onChange={(e) => setDescription(e.target.value)}
           />
 
       </div>
 
       {/* {här lägger du till redigera ikon}  */}
       <button className='pencil' 
-      onClick={() => changeActiveStateOnClick(id)}>{active ? <FontAwesomeIcon icon={faPencil} disabled={!active}/> : <FontAwesomeIcon icon={faPencil} 
-       /> } </button>
+      onClick={() => changeActiveStateOnClick(id)}>{active ? <FontAwesomeIcon icon={faPencil} /> : <FontAwesomeIcon icon={faPencil} 
+      disabled={!active} /> } </button>
 
       <div className="menu-flex">
         <div>
           <p>{price}:-</p>
           <input
           type="text"
-          value={price}
+          value={active ? storePrice : price}
           disabled={!active}
           id='priceInput'
+          onChange={(e) => setPrice(e.target.value)}
           />
           <div className="cart-buttons">
             <button onClick={() => handleClick("+", price, id)}>
@@ -71,10 +84,11 @@ function MenuItem({ name, price, description, img, id, active, changeActiveState
         <img src={img} alt="food picture" />
         <input
           type="text"
-          value={img}
+          value={active ? storeImg : img}
           disabled={!active}
           id='imgInput'
           onChange={handleImageChange}
+        
           />
       </div>
     </div>

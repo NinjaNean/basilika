@@ -36,9 +36,10 @@ main {
   
 }
 .fa-pencil {
+ 
   color: white;
   cursor: pointer;
   width: 28px;
-  height: 20px;
+  height: 20px; 
 
 }
