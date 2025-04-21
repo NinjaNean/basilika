@@ -22,7 +22,7 @@ function App() {
         <Footer/>
         
       </footer>
-      <Edit/>
+      {/* <Edit/> */}
     </>
   );
 }

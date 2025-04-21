@@ -21,6 +21,7 @@ function Menu() {
             description={foodItem.description}
             img={foodItem.img}
             id={foodItem.id}
+            active={foodItem.active}
           />
         );
       })}

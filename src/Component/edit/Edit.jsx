@@ -4,7 +4,7 @@ import '../edit/Edit.css'
 
 
 
-const Edit = ({editItem}) => {
+const Edit = () => {
     const [menuItems, setMenuItems] = useState(menuData)
     const [editId, setEditId] = useState(null)
 	const [newName, setNewName] = useState('')
@@ -30,7 +30,7 @@ const Edit = ({editItem}) => {
 	return (
         <ul className="edit-container">
         {menuItems.map(({ id, name, category, price, description, img }) => (
-            <td className='edit-list' key={id}>
+            <ul className='edit-list' key={id}>
                 {editId === id ? (
                     <>
                         <input type="text" placeholder="name" value={newName} onChange={e => setNewName(e.target.value)} className='edit-input'/>
@@ -52,7 +52,7 @@ const Edit = ({editItem}) => {
                         <button className='save-button' onClick={() => handleEditItem(id, name, category, price, description, img)}>change</button>
                     </>
                 )}
-            </td>
+            </ul>
         ))}
     </ul>
     

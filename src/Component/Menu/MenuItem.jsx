@@ -3,7 +3,7 @@ import infoImg from "../../assets/information-svg.svg";
 import minusImg from "../../assets/minus-svg.svg";
 import plusImg from "../../assets/plus-svg.svg";
 
-function MenuItem({ name, price, description, img, id }) {
+function MenuItem({ name, price, description, img, id, active}) {
   const [order, setOrder] = useState([
     {
       // price: 56+56-56
@@ -27,6 +27,9 @@ function MenuItem({ name, price, description, img, id }) {
         </h2>
         <p>{description}</p>
       </div>
+
+      {/* {här lägger vi till redigera ikon}  */}
+      <button>{active ? 'spara' : 'redigera'}</button>
 
       <div className="menu-flex">
         <div>
