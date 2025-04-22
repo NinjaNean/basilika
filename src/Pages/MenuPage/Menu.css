@@ -173,3 +173,11 @@
   color: white;
   
 }
+.button-container {
+  display: none;
+}
+
+.menu.show-buttons .button-container {
+  display: flex; 
+  gap: 0.5rem;
+}
