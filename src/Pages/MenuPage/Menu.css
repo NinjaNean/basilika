@@ -59,21 +59,6 @@
     border-bottom: none;
   }
 
-  .tooltip-container {
-    position: relative;
-    cursor: pointer;
-  }
-
-  .tooltip {
-    position: absolute;
-    background: var(--dark-background);
-    padding: 0.5rem;
-    border-radius: 5px;
-    font-size: 16px;
-    font-weight: 500;
-    margin-left: 0.5rem;
-  }
-
   .menu-flex {
     display: flex;
     align-items: center;
@@ -125,12 +110,14 @@
     fill: var(--white-color);
   }
 
-  h3 {
-    font-weight: bold;
+  a {
+    color: var(--white-color);
+    font-size: 25px;
+    text-decoration: none;
+    margin: 1rem 0;
 
     &:hover {
-      color: var(--dark-red);
-      cursor: pointer;
+      color: var(--red-color);
     }
   }
 }

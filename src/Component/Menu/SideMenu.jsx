@@ -1,5 +1,6 @@
 import React from "react";
 import sideMenuImg from "../../assets/chopsticks.svg";
+import { HashLink } from "react-router-hash-link";
 
 function SideMenu() {
   const sideMenu = ["Sushi", "Dumplings", "Snacks", "Drycker"];
@@ -10,7 +11,9 @@ function SideMenu() {
         return (
           <div className="side-menu-option" key={category}>
             <img src={sideMenuImg} alt="Chopsticks" />
-            <h3>{category}</h3>
+            <HashLink smooth to={`#${category}`}>
+              {category}
+            </HashLink>
           </div>
         );
       })}

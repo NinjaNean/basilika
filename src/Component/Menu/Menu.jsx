@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import MenuItem from "./MenuItem.jsx";
-import infoImg from "../../assets/information-svg.svg";
 import useCartStore from "../../data/cartStore.js";
 
 function Menu() {
@@ -14,14 +13,9 @@ function Menu() {
 
   return (
     <div className="menu">
-      <p className="allergen-info">
-        <img src={infoImg} alt="information icon" />
-        Allergi information
-      </p>
-
       {categories.map((category) => (
         <div key={category}>
-          <h1>{category}</h1>
+          <h1 id={category}>{category}</h1>
           {foodDataList
             .filter((item) => item.category === category)
             .map((foodItem) => (

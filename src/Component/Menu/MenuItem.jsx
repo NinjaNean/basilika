@@ -19,17 +19,7 @@ function MenuItem({ foodItem }) {
   return (
     <div className="menu-item">
       <div>
-        <h2>
-          {foodItem.name}{" "}
-          <img
-            className="tooltip-container"
-            onMouseEnter={() => setIsVisible(true)}
-            onMouseLeave={() => setIsVisible(false)}
-            src={infoImg}
-            alt="information icon"
-          />
-          {isVisible && <span className="tooltip">{foodItem.allergens}</span>}
-        </h2>
+        <h2>{foodItem.name} </h2>
         <p>{foodItem.description}</p>
       </div>
 
@@ -37,7 +27,7 @@ function MenuItem({ foodItem }) {
         <div>
           <p>{foodItem.price}:-</p>
           <div className="cart-buttons">
-          <button onClick={() => removeFromCart(foodItem)}>
+            <button onClick={() => removeFromCart(foodItem)}>
               <img src={minusImg} alt="minus icon" />
             </button>
             <p>{num?.quantity ?? 0}</p>
