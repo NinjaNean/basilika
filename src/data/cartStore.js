@@ -53,6 +53,18 @@ const useCartStore = create((set, get) => ({
       totalPrice: setTotalPrice(totalPrice, "-", menuOption.price),
     }));
   },
+
+  // klicka på pennan för att redigera maträtt
+  toggleItemActive: (id) => {
+    set((state) => {
+      console.log('menuStore: toggleItemActive', id)
+      return ({
+      foodDataList: state.foodDataList.map((item) =>
+        item.id === id ? { ...item, active: !item.active } : item
+      )
+    })});
+  }
+
 }));
 
 export default useCartStore;

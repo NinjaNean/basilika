@@ -25,7 +25,7 @@ function Menu() {
 
       {categories.map((category) => (
         <div key={category}>
-          <h1 id={category}>{category}</h1>
+          <h2 id={category}>{category}</h2>
           {foodDataList
             .filter((item) => item.category === category)
             .map((foodItem) => (
