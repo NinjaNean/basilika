@@ -96,3 +96,17 @@
     }
   }
 }
+.add-edit-buttons {
+  display: flex;
+  gap: 0.5em;
+  align-items: flex-end;
+  justify-content: flex-end
+
+}
+.add-item-button .edit-item-button {
+  width: 60px;
+  height: 25px;
+  padding: 0.4em 0.2em;
+}
+
+

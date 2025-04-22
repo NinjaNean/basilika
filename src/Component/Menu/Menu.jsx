@@ -33,10 +33,14 @@ function Menu() {
   }
      return (
     <div className="menu">
-      <p className="allergen-info">
+      {/* <p className="allergen-info">
         <img src={infoImg} alt="information icon" />
         Allergi information
-      </p>
+      </p> */}
+      <div className="add-edit-buttons">
+      <button className="edit-item-button">Redigera</button>
+      <button className="add-item-button">Lägg till</button>
+      </div>
 
       {menuItems.map((foodItem) => {
         return (

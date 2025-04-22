@@ -12,6 +12,7 @@ function MenuItem({ name, price, description, img, id, active, changeActiveState
       // price: 56+56-56
       // id: 12
     },
+    
   ]);
 
   const { name: storeName, description: storeDescription, price: storePrice, img: storeImg, setName, setDescription, setPrice, setImg } = useEditMenuStore();
@@ -56,10 +57,12 @@ function MenuItem({ name, price, description, img, id, active, changeActiveState
 
       </div>
 
-      {/* {här lägger du till redigera ikon}  */}
+      {/* {redigera ikon här}  */}
       <button className='pencil' 
       onClick={() => changeActiveStateOnClick(id)}>{active ? <FontAwesomeIcon icon={faPencil} /> : <FontAwesomeIcon icon={faPencil} 
       disabled={!active} /> } </button>
+
+      {/* {papperskorg/checkbox knappar} */}
 
       <div className="menu-flex">
         <div>
