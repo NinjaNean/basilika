@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import infoImg from "../../assets/information-svg.svg";
 import minusImg from "../../assets/minus-svg.svg";
 import plusImg from "../../assets/plus-svg.svg";
+import checkbox from '../../assets/checkbox.png';
+import trash from '../../assets/trash.png';
 import useCartStore from "../../data/cartStore";
 import { useEditMenuStore } from "../../data/menuStore.js";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -19,6 +21,24 @@ function MenuItem({ foodItem, active }) {
     storePrice: foodItem.price,
     storeImg: foodItem.img,
   }) 
+
+  const { updateFoodItem } = useCartStore();
+
+const handleSaveButton = () => {
+  updateFoodItem(foodItem.id, {
+    name: form.storeName,
+    description: form.storeDescription,
+    price: form.storePrice,
+    img: form.storeImg
+  });
+
+  toggleItemActive(foodItem.id);
+};
+
+const { removeFoodItem } = useCartStore();
+const handleDeleteMenuItem = () => {
+  removeFoodItem(foodItem.id);
+};
 
 
   const num = cart.find((item) => {
@@ -51,9 +71,18 @@ function MenuItem({ foodItem, active }) {
           />
       </div>
 
+      <div className="button-container">
       <button className='pencil' 
       onClick={() => toggleItemActive(foodItem.id)}>{active ? <FontAwesomeIcon icon={faPencil} /> : <FontAwesomeIcon icon={faPencil} 
       disabled={!active} /> } </button>
+
+      <button className='save-button' onClick={handleSaveButton}>
+      <img src={checkbox} alt="checkbox icon" />
+      </button>
+      <button className='delete-button' onClick={handleDeleteMenuItem}>
+      <img src={trash} alt="checkbox icon" />
+      </button>
+      </div>
 
 
       <div className="menu-flex">

@@ -137,7 +137,6 @@
   
 }
 .fa-pencil {
- 
   color: white;
   cursor: pointer;
   width: 28px;
@@ -155,4 +154,22 @@
   width: 60px;
   height: 25px;
   padding: 0.4em 0.2em;
+}
+.button-container {
+  display: flex;
+  gap: 0.8em;
+  flex-direction: column;
+}
+.save-button {
+  cursor: pointer;
+  background-color: #511013;
+  border: none;
+  color: white;
+}
+.delete-button {
+  cursor: pointer;
+  background-color: #511013;
+  border: none;
+  color: white;
+  
 }
