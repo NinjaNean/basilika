@@ -121,3 +121,38 @@
     }
   }
 }
+
+*:disabled {
+  border: none;
+  background-color: #511013;
+  color: white;
+  display: none;
+}
+
+.pencil {
+  cursor: pointer;
+  background-color: #511013;
+  border: none;
+  color: white;
+  
+}
+.fa-pencil {
+ 
+  color: white;
+  cursor: pointer;
+  width: 28px;
+  height: 20px; 
+
+}
+.add-edit-buttons {
+  display: flex;
+  gap: 0.5em;
+  align-items: flex-end;
+  justify-content: flex-end
+
+}
+.add-item-button .edit-item-button {
+  width: 60px;
+  height: 25px;
+  padding: 0.4em 0.2em;
+}
