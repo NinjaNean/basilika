@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import MenuItem from "./MenuItem.jsx";
 import useCartStore from "../../data/cartStore.js";
-import { menuData } from "../../data/menuData.js";
+
 
 function Menu() {
   const { foodDataList, totalPrice, toggleItemActive } = useCartStore();
@@ -12,7 +12,9 @@ function Menu() {
     setEditClick((prev) => !prev);
   };
   
-  const [menuItems, setMenuItems] = useState(menuData);
+  
+  
+  
 
 
   //För felsökning

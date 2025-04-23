@@ -65,6 +65,13 @@ const useCartStore = create((set, get) => ({
           item.id === id ? { ...item, ...newData } : item
         ),
       })),
+
+	  addFoodItem: (item) =>
+		set((state) => ({
+		  foodDataList: [...state.foodDataList, item],
+		})),
+	  
+	  
   
   // klicka på pennan för att redigera maträtt
   toggleItemActive: (id) => {

@@ -21,6 +21,9 @@ const schema = Joi.object({
     "string.empty": "Fältet URL är obligatoriskt.",
     "any.required": "Fältet URL är obligatoriskt.",
   }),
+  category: Joi.string().required().messages({
+    "string.empty": "Välj en kategori.",
+  }),
 });
 
 const AddItem = ({ onAddItem }) => {
@@ -29,25 +32,24 @@ const AddItem = ({ onAddItem }) => {
     description: "",
     price: "",
     photo: "",
+    category: "Sushi", 
   });
 
   const [error, setError] = useState("");
 
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
 
-    const handleInputChange = (e) => {
-		const { name, value } = e.target;
-	  
-		if (name === "name" || name === "description") {
-		  const newValue = value.replace(/[^A-Za-zÅÄÖåäö ]/g, "");
-		  setNewItem((prev) => ({ ...prev, [name]: newValue }));
-		} else if (name === "price") {
-		  const numericValue = value.replace(/[^0-9]/g, ""); // just positiv number
-		  setNewItem((prev) => ({ ...prev, [name]: numericValue }));
-		} else {
-		  setNewItem((prev) => ({ ...prev, [name]: value }));
-		}
-	  };
-	  
+    if (name === "name" || name === "description") {
+      const newValue = value.replace(/[^A-Za-zÅÄÖåäö ]/g, "");
+      setNewItem((prev) => ({ ...prev, [name]: newValue }));
+    } else if (name === "price") {
+      const numericValue = value.replace(/[^0-9]/g, "");
+      setNewItem((prev) => ({ ...prev, [name]: numericValue }));
+    } else {
+      setNewItem((prev) => ({ ...prev, [name]: value }));
+    }
+  };
 
   const handleAddItem = () => {
     const itemToValidate = {
@@ -62,9 +64,20 @@ const AddItem = ({ onAddItem }) => {
       return;
     }
 
-    const item = { ...itemToValidate, id: Date.now() };
+    const item = {
+      ...itemToValidate,
+      id: Date.now(),
+      active: true,
+    };
+
     onAddItem(item);
-    setNewItem({ name: "", description: "", price: "", photo: "" });
+    setNewItem({
+      name: "",
+      description: "",
+      price: "",
+      photo: "",
+      category: "Sushi",
+    });
     setError("");
   };
 
@@ -101,11 +114,29 @@ const AddItem = ({ onAddItem }) => {
           value={newItem.photo}
           onChange={handleInputChange}
         />
+        <select
+          name="category"
+          value={newItem.category}
+          onChange={handleInputChange}
+        >
+          <option value="Sushi">Sushi</option>
+          <option value="Dumplings">Dumplings</option>
+          <option value="Snacks">Snacks</option>
+          <option value="Drycker">Drycker</option>
+        </select>
 
         <div className="admin-menu-form-buttons">
           <button
             className="cancel-button"
-            onClick={() => setNewItem({ name: "", description: "", price: "", photo: "" })}
+            onClick={() =>
+              setNewItem({
+                name: "",
+                description: "",
+                price: "",
+                photo: "",
+                category: "Sushi",
+              })
+            }
           >
             Avbryt
           </button>
