@@ -134,6 +134,7 @@
   background-color: #511013;
   border: none;
   color: white;
+  padding: 3px 6px;
   
 }
 .fa-pencil {
@@ -165,12 +166,14 @@
   background-color: #511013;
   border: none;
   color: white;
+  padding: 3px 6px;
 }
 .delete-button {
   cursor: pointer;
   background-color: #511013;
   border: none;
   color: white;
+  padding: 3px 6px;
   
 }
 .button-container {
@@ -182,9 +185,20 @@
   gap: 0.5rem;
 
 }
+.menu-item input {
+  margin: 0.2em;
+  padding: 0.2em;
+  font-size: 16px;
+
+}
 .price-input {
-  width: 100px;
+  width: 60px;
 } 
+  
 .description-input {
-  width: 200px;
+  width: 280px;
+}
+.url-input {
+  height: 60px;
+  max-width: 190px;
 }

@@ -104,6 +104,7 @@ const handleUrlChange = (event) => {
             <p>{foodItem.price}:-</p>
           )}
 
+          {!active &&  (
           <div className="cart-buttons">
             <button onClick={() => removeFromCart(foodItem)}>
               <img src={minusImg} alt="minus icon" />
@@ -113,13 +114,15 @@ const handleUrlChange = (event) => {
               <img src={plusImg} alt="plus icon" />
             </button>
           </div>
+          )}
+
         </div>
         
         {active ? (
          
             <input
             type="url"
-            placeholder="https://text.com"
+            placeholder="https://example.com"
             required
             pattern="https://.*"
             onChange={handleUrlChange}
@@ -129,20 +132,18 @@ const handleUrlChange = (event) => {
             <img src={foodItem.img} alt="info icon" />
           
           )}
+          <div className="button-container">
+            <button className='pencil' 
+            onClick={() => toggleItemActive(foodItem.id)}>{active ? <FontAwesomeIcon icon={faPencil} /> : <FontAwesomeIcon icon={faPencil} 
+            disabled={!active} /> } </button>
 
-
+            <button className='save-button' onClick={handleSaveButton}>
+                <img src={checkbox} alt="checkbox icon" /></button>
+                  
+            <button className='delete-button' onClick={handleDeleteMenuItem}>
+                <img src={trash} alt="checkbox icon" /></button>
+          </div>
       </div>
-      <div className="button-container">
-    <button className='pencil' 
-    onClick={() => toggleItemActive(foodItem.id)}>{active ? <FontAwesomeIcon icon={faPencil} /> : <FontAwesomeIcon icon={faPencil} 
-    disabled={!active} /> } </button>
-
-    <button className='save-button' onClick={handleSaveButton}>
-        <img src={checkbox} alt="checkbox icon" /></button>
-          
-    <button className='delete-button' onClick={handleDeleteMenuItem}>
-        <img src={trash} alt="checkbox icon" /></button>
-        </div>
     </div>
   );
 }
