@@ -17,17 +17,7 @@ const useMenuStore = create((set) => ({
     setDescription: (newDesc) => set({ description: newDesc }),
     setPrice: (newPrice) => set({ price: newPrice }),
     setImg: (newImg) => set({ img: newImg }),
-
-    // toggleItemActive: (id) => {
-    //   set((state) => ({
-    //     foodDataList: state.foodDataList.map((item) =>
-    //       item.id === id ? { ...item, active: !item.active } : item
-    //     )
-    //   }));
-    // }
-    
-    
-    
+  
   }));
  
   

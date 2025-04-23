@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import infoImg from "../../assets/information-svg.svg";
 import minusImg from "../../assets/minus-svg.svg";
 import plusImg from "../../assets/plus-svg.svg";
@@ -23,6 +23,16 @@ function MenuItem({ foodItem, active }) {
   }) 
 
   const { updateFoodItem } = useCartStore();
+
+  useEffect(() => {
+    setForm({
+      storeName: foodItem.name,
+      storeDescription: foodItem.description,
+      storePrice: foodItem.price,
+      storeImg: foodItem.img,
+    });
+  }, [foodItem]);
+  
 
 const handleSaveButton = () => {
   updateFoodItem(foodItem.id, {
@@ -71,20 +81,6 @@ const handleDeleteMenuItem = () => {
           />
       </div>
 
-      <div className="button-container">
-      <button className='pencil' 
-      onClick={() => toggleItemActive(foodItem.id)}>{active ? <FontAwesomeIcon icon={faPencil} /> : <FontAwesomeIcon icon={faPencil} 
-      disabled={!active} /> } </button>
-
-      <button className='save-button' onClick={handleSaveButton}>
-      <img src={checkbox} alt="checkbox icon" />
-      </button>
-      <button className='delete-button' onClick={handleDeleteMenuItem}>
-      <img src={trash} alt="checkbox icon" />
-      </button>
-      </div>
-
-
       <div className="menu-flex">
         <div>
           <p>{foodItem.price}:-</p>
@@ -111,11 +107,22 @@ const handleDeleteMenuItem = () => {
           value={active ? form.storeImg : foodItem.img}
           disabled={!active}
           id='imgInput'
-          onChange={(e) => setForm({ ...form, storeImg: e.target.value })}
-        
-          />
+          onChange={(e) => setForm({ ...form, storeImg: e.target.value })} />
+
+        <div className="button-container">
+          <button className='pencil' 
+          onClick={() => toggleItemActive(foodItem.id)}>{active ? <FontAwesomeIcon icon={faPencil} /> : <FontAwesomeIcon icon={faPencil} 
+          disabled={!active} /> } </button>
+
+          <button className='save-button' onClick={handleSaveButton}>
+          <img src={checkbox} alt="checkbox icon" />
+          </button>
+          <button className='delete-button' onClick={handleDeleteMenuItem}>
+          <img src={trash} alt="checkbox icon" />
+          </button>
+        </div>
       </div>
-    </div>
+        </div>
   );
 }
 
