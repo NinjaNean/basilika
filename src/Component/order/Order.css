@@ -1,5 +1,10 @@
 .cart {
-	
+	background-color: var(--white-color);
+	width: 100vw;
+	position: fixed;
+	bottom: 0;
+
+
 	img  {
 	max-width: 100px;
 	aspect-ratio: 4/3;
