@@ -180,4 +180,11 @@
 .menu.show-buttons .button-container {
   display: flex; 
   gap: 0.5rem;
+
+}
+.price-input {
+  width: 100px;
+} 
+.description-input {
+  width: 200px;
 }
