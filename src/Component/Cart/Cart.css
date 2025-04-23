@@ -1,0 +1,14 @@
+.cart {
+	
+	img  {
+	max-width: 100px;
+	aspect-ratio: 4/3;
+	object-fit: cover;
+	border-radius: 5px;
+  }
+
+  tr {
+	display: flex;
+	align-items: center;
+  }
+}

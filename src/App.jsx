@@ -3,7 +3,7 @@ import "./App.css";
 import Footer from "./Component/footer/Footer.jsx";
 import Header from "./Component/header/Header.jsx";
 import OpenMenu from "./Component/openMenu/OpenMenu.jsx";
-
+import Cart from "./Component/Cart/Cart.jsx"
 
 
 function App() {
@@ -14,6 +14,7 @@ function App() {
         <Header />
       </header>
       <main>
+        <Cart/>
         <Outlet />
       </main>
       <footer>
@@ -24,7 +25,3 @@ function App() {
 }
 
 export default App;
-
-
-
-
