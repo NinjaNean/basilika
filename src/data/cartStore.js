@@ -33,7 +33,9 @@ const useCartStore = create((set, get) => ({
     const { cart, totalPrice } = get();
     let product = cart.find((item) => item.id === menuOption.id);
 
-    if (product != undefined && product.price > 0) {
+    if (!product) return;
+
+    if (product != undefined && product.quantity > 1) {
       const updatedCart = cart.map((item) =>
         item.id === product.id ? { ...item, price: item.price - menuOption.price, quantity: item.quantity - 1 } : item
       );
@@ -41,11 +43,11 @@ const useCartStore = create((set, get) => ({
       set(() => ({
         cart: updatedCart,
       }));
-    } else if (!cart) {
-      let deleteObject = cart.find((item) => item.price > 0);
+    } else {
+      const filterdCart = cart.filter((item) => item.id !== menuOption.id);
 
       set(() => ({
-        cart: deleteObject,
+        cart: filterdCart,
       }));
     }
 
@@ -54,29 +56,25 @@ const useCartStore = create((set, get) => ({
     }));
   },
 
-    removeFoodItem: (id) =>
-      set((state) => ({
-        foodDataList: state.foodDataList.filter((item) => item.id !== id)
-      })),
-    
-    updateFoodItem: (id, newData) =>
-      set((state) => ({
-        foodDataList: state.foodDataList.map((item) =>
-          item.id === id ? { ...item, ...newData } : item
-        ),
-      })),
-  
+  removeFoodItem: (id) =>
+    set((state) => ({
+      foodDataList: state.foodDataList.filter((item) => item.id !== id),
+    })),
+
+  updateFoodItem: (id, newData) =>
+    set((state) => ({
+      foodDataList: state.foodDataList.map((item) => (item.id === id ? { ...item, ...newData } : item)),
+    })),
+
   // klicka på pennan för att redigera maträtt
   toggleItemActive: (id) => {
     set((state) => {
-      console.log('menuStore: toggleItemActive', id)
-      return ({
-      foodDataList: state.foodDataList.map((item) =>
-        item.id === id ? { ...item, active: !item.active } : item
-      )
-    })});
-  }
-
+      console.log("menuStore: toggleItemActive", id);
+      return {
+        foodDataList: state.foodDataList.map((item) => (item.id === id ? { ...item, active: !item.active } : item)),
+      };
+    });
+  },
 }));
 
 export default useCartStore;

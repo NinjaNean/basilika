@@ -1,19 +1,14 @@
 .cart {
-	background-color: var(--white-color);
-	width: 100vw;
-	position: fixed;
-	bottom: 0;
+  background-color: var(--white-color);
+  width: 100vw;
+  position: fixed;
+  bottom: 0;
+  z-index: 1;
 
-
-	img  {
-	max-width: 100px;
-	aspect-ratio: 4/3;
-	object-fit: cover;
-	border-radius: 5px;
-  }
-
-  tr {
-	display: flex;
-	align-items: center;
+  img {
+    max-width: 100px;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    border-radius: 5px;
   }
 }
