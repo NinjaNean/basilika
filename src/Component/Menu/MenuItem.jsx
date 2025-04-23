@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import infoImg from "../../assets/information-svg.svg";
 import minusImg from "../../assets/minus-svg.svg";
 import plusImg from "../../assets/plus-svg.svg";
+import checkbox from '../../assets/checkbox.png';
+import trash from '../../assets/trash.png';
 import useCartStore from "../../data/cartStore";
 import { useEditMenuStore } from "../../data/menuStore.js";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -11,24 +13,33 @@ import { faPencil } from '@fortawesome/free-solid-svg-icons';
 function MenuItem({ foodItem, active }) {
   
   const { addToCart, removeFromCart, cart } = useCartStore();
-  const {toggleItemActive} = useEditMenuStore()
+  const {toggleItemActive} = useCartStore()
 
-  const { name: storeName, description: storeDescription, price: storePrice, img: storeImg, setName, setDescription, setPrice, setImg } = useEditMenuStore();
+  const [form, setForm] = useState({
+    storeName: foodItem.name,
+    storeDescription: foodItem.description,
+    storePrice: foodItem.price,
+    storeImg: foodItem.img,
+  }) 
 
-  const handleImageChange = (event) => {
-    const file = event.target.files[0];
-    if (file) {
-      setImg(URL.createObjectURL(file));
-    }
-  };
+  const { updateFoodItem } = useCartStore();
 
-  function handleClick(operator, price, id) {
-    console.log(price, id);
+const handleSaveButton = () => {
+  updateFoodItem(foodItem.id, {
+    name: form.storeName,
+    description: form.storeDescription,
+    price: form.storePrice,
+    img: form.storeImg
+  });
 
-    if (operator === "+") {
-    } else if (operator === "-") {
-    }
-  }
+  toggleItemActive(foodItem.id);
+};
+
+const { removeFoodItem } = useCartStore();
+const handleDeleteMenuItem = () => {
+  removeFoodItem(foodItem.id);
+};
+
 
   const num = cart.find((item) => {
     if (item === undefined) {
@@ -44,25 +55,34 @@ function MenuItem({ foodItem, active }) {
         <h2>{foodItem.name} 
         <input
           type="text"
-          value={active ? storeName : name}
+          value={active ? form.storeName : foodItem.name}
           disabled={!active}
           id='nameInput'
-          onChange={(e) => setName(e.target.value)}
+          onChange={(e) => setForm({ ...form, storeName: e.target.value })}
           /> 
         </h2>
         <p>{foodItem.description}</p>
         <input
           type="text"
-          value={active ? storeDescription : foodItem.description}
+          value={active ? form.storeDescription : foodItem.description}
           disabled={!active}
           id='descriptionInput'
-          onChange={(e) => setDescription(e.target.value)}
+          onChange={(e) => setForm({ ...form, storeDescription: e.target.value })}
           />
       </div>
 
+      <div className="button-container">
       <button className='pencil' 
-      onClick={() => toggleItemActive(foodItem.altid)}>{active ? <FontAwesomeIcon icon={faPencil} /> : <FontAwesomeIcon icon={faPencil} 
+      onClick={() => toggleItemActive(foodItem.id)}>{active ? <FontAwesomeIcon icon={faPencil} /> : <FontAwesomeIcon icon={faPencil} 
       disabled={!active} /> } </button>
+
+      <button className='save-button' onClick={handleSaveButton}>
+      <img src={checkbox} alt="checkbox icon" />
+      </button>
+      <button className='delete-button' onClick={handleDeleteMenuItem}>
+      <img src={trash} alt="checkbox icon" />
+      </button>
+      </div>
 
 
       <div className="menu-flex">
@@ -70,10 +90,10 @@ function MenuItem({ foodItem, active }) {
           <p>{foodItem.price}:-</p>
           <input
           type="text"
-          value={active ? storePrice : foodItem.price}
+          value={active ? form.storePrice : foodItem.price}
           disabled={!active}
           id='priceInput'
-          onChange={(e) => setPrice(e.target.value)}
+          onChange={(e) => setForm({ ...form, storePrice: e.target.value })}
           />
           <div className="cart-buttons">
             <button onClick={() => removeFromCart(foodItem)}>
@@ -88,10 +108,10 @@ function MenuItem({ foodItem, active }) {
         <img src={foodItem.img} alt="food picture" />
         <input
           type="text"
-          value={active ? storeImg : foodItem.img}
+          value={active ? form.storeImg : foodItem.img}
           disabled={!active}
           id='imgInput'
-          onChange={handleImageChange}
+          onChange={(e) => setForm({ ...form, storeImg: e.target.value })}
         
           />
       </div>
