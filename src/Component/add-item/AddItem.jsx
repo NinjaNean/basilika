@@ -1,46 +1,44 @@
-import React, { useState, useEffect } from "react";
-
+import React, { useState } from "react";
 import "./AddItem.css";
 
-import menuData from "../../Data/menuData";
-
-const AddItem = () => {
-  const [menuItems, setMenuItems] = useState([]);
-
+const AddItem = ({ onAddItem }) => {
   const [newItem, setNewItem] = useState({
     name: "",
     description: "",
     price: "",
+    photo: "",
   });
 
   const [error, setError] = useState("");
 
-  useEffect(() => {
-    setMenuItems(menuData);
-  }, []);
-
+  
   const handleInputChange = (e) => {
     const { name, value } = e.target;
 
-    setNewItem((prev) => ({ ...prev, [name]: value }));
-  };
-
-  const handleAddItem = () => {
-    if (newItem.name && newItem.description && newItem.price) {
-      const item = { ...newItem, id: Date.now() };
-
-      setMenuItems((prev) => [...prev, item]);
-
-      setNewItem({ name: "", description: "", price: "" });
-
-      setError("");
+    //validering for name and description
+    if (name === "name" || name === "description") {
+     
+      const newValue = value.replace(/[^A-Za-zÅÄÖåäö ]/g, "");
+      setNewItem((prev) => ({ ...prev, [name]: newValue }));
     } else {
-      setError("Fyll i alla fält.");
+     
+      setNewItem((prev) => ({ ...prev, [name]: value }));
     }
   };
 
-  const handleDeleteItem = (id) => {
-    setMenuItems((prev) => prev.filter((i) => i.id !== id));
+  const handleAddItem = () => {
+    if (newItem.name && newItem.description && newItem.price && newItem.photo) {
+      if (Number(newItem.price) > 0) {
+        const item = { ...newItem, id: Date.now() };
+        onAddItem(item); 
+        setNewItem({ name: "", description: "", price: "", photo: "" }); 
+        setError(""); 
+      } else {
+        setError("Priset måste vara ett positivt tal."); 
+      }
+    } else {
+      setError("Fyll i alla fält."); 
+	    }
   };
 
   return (
@@ -55,7 +53,6 @@ const AddItem = () => {
           value={newItem.name}
           onChange={handleInputChange}
         />
-
         <input
           type="text"
           name="description"
@@ -63,7 +60,6 @@ const AddItem = () => {
           value={newItem.description}
           onChange={handleInputChange}
         />
-
         <input
           type="number"
           name="price"
@@ -71,11 +67,10 @@ const AddItem = () => {
           value={newItem.price}
           onChange={handleInputChange}
         />
-
         <input
-          type="photo"
+          type="text"
           name="photo"
-          placeholder="photo"
+          placeholder="URL"
           value={newItem.photo}
           onChange={handleInputChange}
         />
@@ -83,7 +78,7 @@ const AddItem = () => {
         <div className="admin-menu-form-buttons">
           <button
             className="cancel-button"
-            onClick={() => setNewItem({ name: "", description: "", price: "" })}
+            onClick={() => setNewItem({ name: "", description: "", price: "", photo: "" })}
           >
             Avbryt
           </button>
