@@ -1,5 +1,27 @@
 import React, { useState } from "react";
+import Joi from "joi";
 import "./AddItem.css";
+
+const schema = Joi.object({
+  name: Joi.string().pattern(/^[A-Za-zÅÄÖåäö ]+$/).required().messages({
+    "string.empty": "Fältet namn är obligatoriskt.",
+    "string.pattern.base": "Namnet får endast innehålla bokstäver och mellanslag.",
+  }),
+  description: Joi.string().pattern(/^[A-Za-zÅÄÖåäö ]+$/).required().messages({
+    "string.empty": "Fältet beskrivning är obligatoriskt.",
+    "string.pattern.base": "Beskrivningen får endast innehålla bokstäver och mellanslag.",
+  }),
+  price: Joi.number().positive().required().messages({
+    "number.base": "Priset måste vara ett nummer.",
+    "number.positive": "Priset måste vara ett positivt tal.",
+    "any.required": "Fältet pris är obligatoriskt.",
+  }),
+  photo: Joi.string().uri().required().messages({
+    "string.uri": "Vänligen ange en giltig URL.",
+    "string.empty": "Fältet URL är obligatoriskt.",
+    "any.required": "Fältet URL är obligatoriskt.",
+  }),
+});
 
 const AddItem = ({ onAddItem }) => {
   const [newItem, setNewItem] = useState({
@@ -11,34 +33,39 @@ const AddItem = ({ onAddItem }) => {
 
   const [error, setError] = useState("");
 
-  
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
 
-    //validering for name and description
-    if (name === "name" || name === "description") {
-     
-      const newValue = value.replace(/[^A-Za-zÅÄÖåäö ]/g, "");
-      setNewItem((prev) => ({ ...prev, [name]: newValue }));
-    } else {
-     
-      setNewItem((prev) => ({ ...prev, [name]: value }));
-    }
-  };
+    const handleInputChange = (e) => {
+		const { name, value } = e.target;
+	  
+		if (name === "name" || name === "description") {
+		  const newValue = value.replace(/[^A-Za-zÅÄÖåäö ]/g, "");
+		  setNewItem((prev) => ({ ...prev, [name]: newValue }));
+		} else if (name === "price") {
+		  const numericValue = value.replace(/[^0-9]/g, ""); // just positiv number
+		  setNewItem((prev) => ({ ...prev, [name]: numericValue }));
+		} else {
+		  setNewItem((prev) => ({ ...prev, [name]: value }));
+		}
+	  };
+	  
 
   const handleAddItem = () => {
-    if (newItem.name && newItem.description && newItem.price && newItem.photo) {
-      if (Number(newItem.price) > 0) {
-        const item = { ...newItem, id: Date.now() };
-        onAddItem(item); 
-        setNewItem({ name: "", description: "", price: "", photo: "" }); 
-        setError(""); 
-      } else {
-        setError("Priset måste vara ett positivt tal."); 
-      }
-    } else {
-      setError("Fyll i alla fält."); 
-	    }
+    const itemToValidate = {
+      ...newItem,
+      price: newItem.price === "" ? "" : Number(newItem.price),
+    };
+
+    const { error: validationError } = schema.validate(itemToValidate);
+
+    if (validationError) {
+      setError(validationError.details[0].message);
+      return;
+    }
+
+    const item = { ...itemToValidate, id: Date.now() };
+    onAddItem(item);
+    setNewItem({ name: "", description: "", price: "", photo: "" });
+    setError("");
   };
 
   return (
