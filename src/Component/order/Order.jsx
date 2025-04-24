@@ -35,9 +35,8 @@ function Order() {
                   <button onClick={() => addToCart(item)}>+</button>
                 </td>
                 <td>
-                  <img src={item.img} alt="" /> {item.name + item.price}
+                  <img src={item.img} alt="" /> {item.name} {item.price}:-
                 </td>
-                <td>{item.price}:-</td>
                 <td>{findQuantity(item.id) * item.price}:-</td>
               </tr>
             ))
@@ -45,7 +44,7 @@ function Order() {
       </tbody>
       <tfoot>
         <tr>
-          <th scope="row" colspan="3"></th>
+          <th scope="row" colspan="2"></th>
           <td>{totalPrice}:-</td>
         </tr>
       </tfoot>

@@ -1,7 +1,8 @@
-import Menu from "../../component/Menu/Menu.jsx";
+import Menu from "../../Component/menu/Menu.jsx";
 import SideMenu from "../../Component/menu/SideMenu.jsx";
 import "./Menu.css";
 import heroImg from "../../assets/TemptAsian-Page-Header_1920x600-2.webp";
+import Order from "../../Component/order/Order.jsx";
 
 function MenuPage() {
   return (
@@ -11,6 +12,7 @@ function MenuPage() {
         <SideMenu />
         <Menu />
       </div>
+      <Order />
     </div>
   );
 }

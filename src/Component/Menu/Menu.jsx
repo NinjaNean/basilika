@@ -11,9 +11,8 @@ function Menu() {
   const handleEditClick = () => {
     setEditClick((prev) => !prev);
   };
-  
-  const [menuItems, setMenuItems] = useState(menuData);
 
+  const [menuItems, setMenuItems] = useState(menuData);
 
   //För felsökning
   useEffect(() => {
@@ -21,10 +20,11 @@ function Menu() {
   }, [totalPrice]);
 
   return (
-    <div  className={`menu ${editClick ? "show-buttons" : ""}`}>
-       <div className="add-edit-buttons">
+    <div className={`menu ${editClick ? "show-buttons" : ""}`}>
+      <div className="add-edit-buttons">
         <button className="edit-item-button" onClick={handleEditClick}>
-        {editClick ? 'Klart' : 'Redigera' }</button>
+          {editClick ? "Klart" : "Redigera"}
+        </button>
         <button className="add-item-button">Lägg till</button>
       </div>
 
@@ -34,8 +34,7 @@ function Menu() {
           {foodDataList
             .filter((item) => item.category === category)
             .map((foodItem) => (
-              <MenuItem key={foodItem.id} foodItem={foodItem} 
-              active={foodItem.active}/>
+              <MenuItem key={foodItem.id} foodItem={foodItem} active={foodItem.active} />
             ))}
         </div>
       ))}

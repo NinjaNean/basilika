@@ -3,8 +3,6 @@ import "./App.css";
 import Footer from "./Component/footer/Footer.jsx";
 import Header from "./Component/header/Header.jsx";
 import OpenMenu from "./Component/openMenu/OpenMenu.jsx";
-import Order from "./Component/order/Order.jsx";
-
 
 function App() {
   return (
@@ -14,11 +12,10 @@ function App() {
         <Header />
       </header>
       <main>
-        <Order/>
         <Outlet />
       </main>
       <footer>
-        <Footer/>
+        <Footer />
       </footer>
     </>
   );

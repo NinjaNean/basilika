@@ -1,9 +1,9 @@
 .cart {
   background-color: var(--white-color);
-  width: 100vw;
-  position: fixed;
+  width: 100%;
+  position: sticky;
   bottom: 0;
-  z-index: 1;
+  color: black;
 
   img {
     max-width: 100px;
