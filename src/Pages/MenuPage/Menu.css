@@ -158,7 +158,6 @@
 }
 .button-container {
   display: flex;
-  gap: 0.8em;
   flex-direction: column;
 }
 .save-button {
@@ -167,6 +166,7 @@
   border: none;
   color: white;
   padding: 3px 6px;
+  position: relative;
 }
 .delete-button {
   cursor: pointer;
@@ -182,7 +182,7 @@
 
 .menu.show-buttons .button-container {
   display: flex; 
-  gap: 0.5rem;
+  gap: 1rem;
 
 }
 .menu-item input {
@@ -201,4 +201,16 @@
 .url-input {
   height: 60px;
   max-width: 190px;
+}
+.save-button .hover-text,
+.delete-button .hover-text,
+.pencil .hover-text {
+  display: none;
+}
+
+.save-button:hover .hover-text,
+.delete-button:hover .hover-text,
+.pencil:hover .hover-text {
+  display: block;
+  position: absolute;
 }
