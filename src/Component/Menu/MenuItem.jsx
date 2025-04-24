@@ -8,7 +8,7 @@ import useCartStore from "../../data/cartStore";
 import { useEditMenuStore } from "../../data/menuStore.js";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPencil } from '@fortawesome/free-solid-svg-icons';
-import { validationSchema} from "../../data/validationSchemas.js";
+import { validateInput} from "../../data/validationSchemas.js";
 
 
 function MenuItem({ foodItem, active }) {
@@ -25,7 +25,7 @@ function MenuItem({ foodItem, active }) {
     storeImg: foodItem.img,
   }) 
 
-  const { css, message, isFormValid } = validateForm(form, touchedInput);
+  const {css, message, isFormValid } = validateInput(form, touchedInput);
   console.log(css, message)
 
 
