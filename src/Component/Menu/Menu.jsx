@@ -23,9 +23,13 @@ function Menu() {
   return (
     <div  className={`menu ${editClick ? "show-buttons" : ""}`}>
        <div className="add-edit-buttons">
-        <button className="edit-item-button" onClick={handleEditClick}>
-        {editClick ? 'Klart' : 'Redigera' }</button>
-        <button className="add-item-button">Lägg till</button>
+       
+       <button 
+       className={`edit-item-button ${editClick ? "disabled" : ""}`} 
+       onClick={handleEditClick}> {editClick ? "Redigera" : "Redigera"}
+      </button>
+
+      <button className="add-item-button">Lägg till</button>
       </div>
 
       {categories.map((category) => (

@@ -101,7 +101,7 @@ const handleUrlChange = (event) => {
               className="price-input"
             />
           ) : (
-            <p>{foodItem.price} Sek</p>
+            <p>{foodItem.price} :-</p>
           )}
 
           {!active &&  (
@@ -132,23 +132,28 @@ const handleUrlChange = (event) => {
             <img src={foodItem.img} alt="info icon" />
           
           )}
+          
           <div className="button-container">
-            <button className='pencil' 
-                onClick={() => toggleItemActive(foodItem.id)}>{active ? <FontAwesomeIcon icon={faPencil} /> : <FontAwesomeIcon icon={faPencil} 
-                disabled={!active} /> } 
-                <span className="hover-text">redigera</span>
+          {!active ? (
+            
+            <button className='pencil' onClick={() => toggleItemActive(foodItem.id)}>
+              <FontAwesomeIcon icon={faPencil} />
+              <span className="hover-text">redigera</span>
             </button>
-
+          ) : (
+            
             <button className='save-button' onClick={handleSaveButton}>
-                <img src={checkbox} alt="checkbox icon" />
-                <span className="hover-text">spara</span>
+              <img src={checkbox} alt="checkbox icon" />
+              <span className="hover-text">spara</span>
             </button>
-                  
-            <button className='delete-button' onClick={handleDeleteMenuItem}>
-                <img src={trash} alt="checkbox icon" />
-                <span className="hover-text">ta bort</span>
-            </button>
-          </div>
+          )}
+
+          <button className='delete-button' onClick={handleDeleteMenuItem}>
+            <img src={trash} alt="trash icon" />
+            <span className="hover-text">ta bort</span>
+          </button>
+        </div>
+
       </div>
     </div>
   );

@@ -2,6 +2,9 @@ import React from "react";
 import { NavLink } from "react-router";
 import "./OpenMenu.css";
 import { useOpenMenuStore } from "../../data/openMenuStore";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faLock } from "@fortawesome/free-solid-svg-icons";
+
 
 const OpenMenu = () => {
   const isOpen = useOpenMenuStore((state) => state.isOpen);
@@ -12,20 +15,10 @@ const OpenMenu = () => {
 
   return (
     <div className="nav-links" onClick={closeMenu}>
-      <ul onClick={closeMenu}>
-        <li>
-          <NavLink to="/">Home</NavLink>
-        </li>
-        <li>
-          <NavLink to="/contact">Contact</NavLink>
-        </li>
-        <li>
-          <NavLink to="/menu">Menu</NavLink>
-        </li>
-        <li>
-          <NavLink to="/signin">Sign In </NavLink>
-        </li>
-      </ul>
+      <NavLink to="/">Hem</NavLink>
+      <NavLink to="/menu">Menu</NavLink>
+      <NavLink to="/contact">Kontakta oss</NavLink>
+      <NavLink to="/signin">Logga in <FontAwesomeIcon icon={faLock} className='lock'/></NavLink>
     </div>
   );
 };

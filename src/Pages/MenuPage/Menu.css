@@ -124,21 +124,12 @@
 
 *:disabled {
   border: none;
-  background-color: #511013;
-  color: white;
+  background: var(--dark-red);
+  color: var(--white-color);
   display: none;
 }
-
-.pencil {
-  cursor: pointer;
-  background-color: #511013;
-  border: none;
-  color: white;
-  padding: 3px 6px;
-  
-}
 .fa-pencil {
-  color: white;
+  color: var(--white-color);
   cursor: pointer;
   width: 28px;
   height: 20px; 
@@ -146,35 +137,47 @@
 }
 .add-edit-buttons {
   display: flex;
-  gap: 0.5em;
+  gap: 0.6em;
   align-items: flex-end;
-  justify-content: flex-end
+  justify-content: flex-end;
+  margin: 0.5em 0;
+  padding: 0 0.2em; 
 
 }
-.add-item-button .edit-item-button {
-  width: 60px;
-  height: 25px;
+.add-item-button, .edit-item-button {
+  width: 90px;
+  height: 40px;
   padding: 0.4em 0.2em;
+  margin: 0.3em 0;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 17px;
+  font-weight: bold;
+  
 }
 .button-container {
   display: flex;
   flex-direction: column;
 }
-.save-button {
+.delete-button, .save-button, .pencil {
   cursor: pointer;
-  background-color: #511013;
+  background: var(--dark-red);
   border: none;
-  color: white;
+  color: var(--white-color);
   padding: 3px 6px;
   position: relative;
+  width: 40px;
 }
-.delete-button {
-  cursor: pointer;
-  background-color: #511013;
-  border: none;
-  color: white;
-  padding: 3px 6px;
-  
+
+.delete-button img {
+  width: 24px;
+}
+.save-button img {
+  width: 24px;
+}
+.pencil img {
+  width: 30px;
+ 
 }
 .button-container {
   display: none;
@@ -186,31 +189,55 @@
 
 }
 .menu-item input {
-  margin: 0.2em;
-  padding: 0.2em;
+  margin: 0.3em;
+  padding: 0.3em;
   font-size: 16px;
 
 }
 .price-input {
   width: 60px;
+  height: 35px;
+  
 } 
   
 .description-input {
   width: 280px;
+  height: 35px;
+  
 }
 .url-input {
   height: 60px;
   max-width: 190px;
+  
 }
+.name-input {
+  width: 200px;
+  height: 35px;
+  
+}
+.pencil .hover-text,
 .save-button .hover-text,
-.delete-button .hover-text,
-.pencil .hover-text {
+.delete-button .hover-text {
+  position: absolute;
+  bottom: 100%; 
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--white-color);
+  background-color: rgb(31, 30, 30);
+  font-size: 15px;
+  white-space: nowrap;
+  z-index: 10;
   display: none;
+  
 }
 
+.pencil:hover .hover-text,
 .save-button:hover .hover-text,
-.delete-button:hover .hover-text,
-.pencil:hover .hover-text {
+.delete-button:hover .hover-text {
   display: block;
-  position: absolute;
+}
+.edit-item-button.disabled {
+  opacity: 0.5;
+  pointer-events: none; 
+  cursor: default;
 }
