@@ -1,8 +1,7 @@
 import './Footer.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTwitter, faFacebook, faInstagram } from '@fortawesome/free-brands-svg-icons'; 
-import smallMap from '../../assets/smallMap.png';
-import smallLogo from '../../assets/smallLogo.png';
+
 
 
 const Footer = () => {
@@ -40,7 +39,7 @@ const Footer = () => {
                 <div className="footer-heading1">
                     <h4>Find us</h4>
                     <p className='footer-text'>Du hittar oss 100m från busshållpats</p>
-                    {/* <img src={smallMap} alt="small map" /> */}
+                   
                 </div>
             </section>
             
