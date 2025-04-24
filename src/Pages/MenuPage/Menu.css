@@ -85,7 +85,7 @@
       border: none;
       cursor: pointer;
       display: flex;
-      height: 35px;
+      height: 30px;
     }
 
     p {
@@ -194,7 +194,7 @@
   gap: 1rem;
 }
 .menu-item input {
-  margin: 0.3em;
+  margin: 0.3em 0;
   padding: 0.3em;
   font-size: 16px;
 }
@@ -208,7 +208,6 @@
   height: 35px;
 }
 .url-input {
-  height: 60px;
   max-width: 190px;
 }
 .name-input {
@@ -280,12 +279,26 @@
       .menu {
         border-radius: 0;
 
+        .menu-item {
+          padding: 1rem 0;
+        }
+
         .menu-flex {
+          gap: 0.5rem;
+          flex-wrap: wrap;
+
           > img {
             width: 112px;
           }
         }
       }
     }
+  }
+}
+
+@media (max-width: 354px) {
+  .button-container {
+    gap: 0.5rem;
+    flex-direction: row;
   }
 }
