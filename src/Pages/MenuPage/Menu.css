@@ -4,15 +4,18 @@
   padding-bottom: 1rem;
 
   p {
-    font-size: 20px;
+    font-size: 1rem;
+    font-size: clamp(1rem, 0.95rem + 0.25vw, 1.25rem);
   }
 
   h1 {
-    font-size: 40px;
+    font-size: 1.875rem;
+    font-size: clamp(1.875rem, 2.625rem + -0.625vw, 2.5rem);
   }
 
   h2 {
-    font-size: 30px;
+    font-size: 1.25rem;
+    font-size: clamp(1.25rem, 2rem + -0.625vw, 1.875rem);
   }
 }
 
@@ -97,8 +100,9 @@
 
 .side-menu {
   position: sticky;
-  top: 1rem;
+  top: 0rem;
   max-height: fit-content;
+  padding: 1rem 0 2rem;
 }
 
 .side-menu-option {
@@ -112,7 +116,8 @@
 
   a {
     color: var(--white-color);
-    font-size: 25px;
+    font-size: 1.25rem;
+    font-size: clamp(1.25rem, 1.625rem + -0.3125vw, 1.5625rem);
     text-decoration: none;
     margin: 1rem 0;
 
@@ -132,8 +137,7 @@
   color: var(--white-color);
   cursor: pointer;
   width: 28px;
-  height: 20px; 
-
+  height: 20px;
 }
 .add-edit-buttons {
   display: flex;
@@ -240,4 +244,50 @@
   opacity: 0.5;
   pointer-events: none; 
   cursor: default;
+}
+
+@media (max-width: 1000px) {
+  .menu-item {
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .menu-flex {
+    justify-content: space-between;
+    width: 100%;
+  }
+}
+
+@media (max-width: 750px) {
+  .menu-grid {
+    grid-template-columns: 1fr;
+
+    .side-menu {
+      background-color: var(--dark-background);
+    }
+  }
+}
+
+@media (max-width: 460px) {
+  .menu-page {
+    padding: 0;
+
+    .menu-grid {
+      margin: 0;
+
+      .side-menu {
+        padding: 1rem;
+      }
+
+      .menu {
+        border-radius: 0;
+
+        .menu-flex {
+          > img {
+            width: 100px;
+          }
+        }
+      }
+    }
+  }
 }
