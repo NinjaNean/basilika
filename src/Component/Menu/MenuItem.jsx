@@ -10,8 +10,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPencil } from '@fortawesome/free-solid-svg-icons';
 
 
+
 function MenuItem({ foodItem, active }) {
-  
+
+
+
   const { addToCart, removeFromCart, cart } = useCartStore();
   const {toggleItemActive} = useCartStore()
 
@@ -21,6 +24,8 @@ function MenuItem({ foodItem, active }) {
     storePrice: foodItem.price,
     storeImg: foodItem.img,
   }) 
+
+ 
 
   const { updateFoodItem } = useCartStore();
 
@@ -32,6 +37,8 @@ function MenuItem({ foodItem, active }) {
       storeImg: foodItem.img,
     });
   }, [foodItem]);
+
+ 
   
 
 const handleSaveButton = () => {
@@ -67,23 +74,29 @@ const handleUrlChange = (event) => {
     <div className="menu-item">
       <div>
         {active ? (
+          <>
           <input
             type="text"
             value={form.storeName}
             onChange={(e) => setForm({ ...form, storeName: e.target.value })}
             className="name-input"
           />
+          <p>{message.name}</p>
+          </>
         ) : (
           <h2>{foodItem.name}</h2>
         )}
 
         {active ? (
+          <>
           <input
             type="text"
             value={form.storeDescription}
             onChange={(e) => setForm({ ...form, storeDescription: e.target.value })}
             className="description-input"
           />
+          <p>{message.description}</p>
+          </>
         ) : (
           <p>{foodItem.description}</p>
         )}
@@ -94,12 +107,15 @@ const handleUrlChange = (event) => {
       <div className="menu-flex">
         <div>
         {active ? (
+          <>
             <input
               type="number"
               value={form.storePrice}
               onChange={(e) => setForm({ ...form, storePrice: e.target.value })}
               className="price-input"
             />
+            <p>{message.price}</p>
+            </>
           ) : (
             <p>{foodItem.price} :-</p>
           )}

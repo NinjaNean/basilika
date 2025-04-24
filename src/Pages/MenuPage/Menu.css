@@ -131,7 +131,7 @@
   border: none;
   background: var(--dark-red);
   color: var(--white-color);
-  display: none;
+  /* display: none; */
 }
 .fa-pencil {
   color: var(--white-color);
