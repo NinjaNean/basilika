@@ -8,7 +8,7 @@ import useCartStore from "../../data/cartStore";
 import { useEditMenuStore } from "../../data/menuStore.js";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPencil } from '@fortawesome/free-solid-svg-icons';
-import { validateForm } from "../../data/test.js";
+import { validationSchema} from "../../data/validationSchemas.js";
 
 
 function MenuItem({ foodItem, active }) {
@@ -85,6 +85,7 @@ const handleUrlChange = (event) => {
             value={form.storeName}
             onChange={(e) => setForm({ ...form, storeName: e.target.value })}
             className="name-input"
+            onBlur={() => setTouchedInput({ ...touchedInput, name: true })}
           />
           <p>{message.name}</p>
           </>
@@ -99,6 +100,7 @@ const handleUrlChange = (event) => {
             value={form.storeDescription}
             onChange={(e) => setForm({ ...form, storeDescription: e.target.value })}
             className="description-input"
+            onBlur={() => setTouchedInput({ ...touchedInput, description: true })}
           />
           <p>{message.description}</p>
           </>
@@ -117,7 +119,9 @@ const handleUrlChange = (event) => {
               type="number"
               value={form.storePrice}
               onChange={(e) => setForm({ ...form, storePrice: e.target.value })}
-              className="price-input"/>
+              className="price-input"
+              onBlur={() => setTouchedInput({ ...touchedInput, price: true })}/>
+              
             <p>{message.price}</p>
           </>
           ) : (
@@ -146,7 +150,8 @@ const handleUrlChange = (event) => {
             required
             pattern="https://.*"
             onChange={handleUrlChange}
-            className="url-input"/>
+            className="url-input"
+            onBlur={() => setTouchedInput({ ...touchedInput, img: true })}/>
              <p>{message.img}</p>
              </>
           ) : (
