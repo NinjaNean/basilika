@@ -8,12 +8,12 @@ import useCartStore from "../../data/cartStore";
 import { useEditMenuStore } from "../../data/menuStore.js";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPencil } from '@fortawesome/free-solid-svg-icons';
-
+import { validateForm } from "../../data/test.js";
 
 
 function MenuItem({ foodItem, active }) {
 
-
+  const [touchedInput, setTouchedInput] = useState({ name: false, description: false, price: false, img: false });
 
   const { addToCart, removeFromCart, cart } = useCartStore();
   const {toggleItemActive} = useCartStore()
@@ -25,7 +25,9 @@ function MenuItem({ foodItem, active }) {
     storeImg: foodItem.img,
   }) 
 
- 
+  const { css, message, isFormValid } = validateForm(form, touchedInput);
+  console.log(css, message)
+
 
   const { updateFoodItem } = useCartStore();
 
@@ -38,7 +40,10 @@ function MenuItem({ foodItem, active }) {
     });
   }, [foodItem]);
 
- 
+  useEffect(() => { 
+    console.log(form)
+  },[form]
+  )
   
 
 const handleSaveButton = () => {
@@ -112,10 +117,9 @@ const handleUrlChange = (event) => {
               type="number"
               value={form.storePrice}
               onChange={(e) => setForm({ ...form, storePrice: e.target.value })}
-              className="price-input"
-            />
+              className="price-input"/>
             <p>{message.price}</p>
-            </>
+          </>
           ) : (
             <p>{foodItem.price} :-</p>
           )}
@@ -135,16 +139,18 @@ const handleUrlChange = (event) => {
         </div>
         
         {active ? (
-         
+            <>
             <input
             type="url"
             placeholder="https://example.com"
             required
             pattern="https://.*"
             onChange={handleUrlChange}
-            className="url-input"
-          />
+            className="url-input"/>
+             <p>{message.img}</p>
+             </>
           ) : (
+            
             <img src={foodItem.img} alt="info icon" />
           
           )}
@@ -158,7 +164,7 @@ const handleUrlChange = (event) => {
             </button>
           ) : (
             
-            <button className='save-button' onClick={handleSaveButton}>
+            <button className='save-button' disabled={isFormValid} onClick={handleSaveButton}>
               <img src={checkbox} alt="checkbox icon" />
               <span className="hover-text">spara</span>
             </button>
