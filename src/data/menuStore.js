@@ -1,30 +1,5 @@
 import { create } from 'zustand'
 import menuData from './menuData.js'
-import Joi from 'joi'
-
-
-
-const menuInputSchema = Joi.object({
-  storeName: Joi.string()
-  .min(2)
-  .max(100)
-  .required(),
-
-  storeDescription: Joi.string()
-  .min(5)
-  .max(300)
-  .required(),
-
-  storePrice: Joi.number()
-  .positive()
-  .precision(2)
-  .required(),
-
-  storeImg: Joi.string()
-  .uri().
-  required(), 
-});
-
 
 
 const useMenuStore = create((set) => ({
@@ -47,4 +22,4 @@ const useMenuStore = create((set) => ({
  
   
   
-  export {useMenuStore, useEditMenuStore, menuInputSchema};
+  export {useMenuStore, useEditMenuStore};

@@ -8,10 +8,13 @@ import useCartStore from "../../data/cartStore";
 import { useEditMenuStore } from "../../data/menuStore.js";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPencil } from '@fortawesome/free-solid-svg-icons';
+import { validateInput} from "../../data/validationSchemas.js";
 
 
 function MenuItem({ foodItem, active }) {
-  
+
+  const [touchedInput, setTouchedInput] = useState({ name: false, description: false, price: false, img: false });
+
   const { addToCart, removeFromCart, cart } = useCartStore();
   const {toggleItemActive} = useCartStore()
 
@@ -21,6 +24,17 @@ function MenuItem({ foodItem, active }) {
     storePrice: foodItem.price,
     storeImg: foodItem.img,
   }) 
+
+  const [validation, setValidation] = useState({
+    css: {},
+    message: {},
+    isFormValid: false,
+  });
+  useEffect(() => {
+  const result = validateInput(form, touchedInput);
+  setValidation(result);
+}, [form, touchedInput]);
+
 
   const { updateFoodItem } = useCartStore();
 
@@ -32,6 +46,10 @@ function MenuItem({ foodItem, active }) {
       storeImg: foodItem.img,
     });
   }, [foodItem]);
+
+  useEffect(() => { 
+  },[form]
+  )
   
 
 const handleSaveButton = () => {
@@ -50,10 +68,12 @@ const { removeFoodItem } = useCartStore();
 const handleDeleteMenuItem = () => {
   removeFoodItem(foodItem.id);
 };
-const handleUrlChange = (event) => {
-  const url = event.target.value;
-  console.log("Entered URL:", url);
+const handleUrlChange = (e) => {
+  const url = e.target.value;
+  setForm((prev) => ({ ...prev, storeImg: url }));
+  setTouchedInput((prev) => ({ ...prev, img: true }));
 };
+
 
   const num = cart.find((item) => {
     if (item === undefined) {
@@ -67,23 +87,31 @@ const handleUrlChange = (event) => {
     <div className="menu-item">
       <div>
         {active ? (
+          <>
           <input
             type="text"
             value={form.storeName}
             onChange={(e) => setForm({ ...form, storeName: e.target.value })}
             className="name-input"
+            onBlur={() => setTouchedInput({ ...touchedInput, name: true })}
           />
+          <p className='name-message'>{validation.message.name}</p>
+          </>
         ) : (
           <h2>{foodItem.name}</h2>
         )}
 
         {active ? (
+          <>
           <input
             type="text"
             value={form.storeDescription}
             onChange={(e) => setForm({ ...form, storeDescription: e.target.value })}
             className="description-input"
+            onBlur={() => setTouchedInput({ ...touchedInput, description: true })}
           />
+          <p className='description-message'>{validation.message.description}</p>
+          </>
         ) : (
           <p>{foodItem.description}</p>
         )}
@@ -94,12 +122,15 @@ const handleUrlChange = (event) => {
       <div className="menu-flex">
         <div>
         {active ? (
+          <>
             <input
               type="number"
               value={form.storePrice}
               onChange={(e) => setForm({ ...form, storePrice: e.target.value })}
               className="price-input"
-            />
+              onBlur={() => setTouchedInput({ ...touchedInput, price: true })}/>
+            <p className='price-message'>{validation.message.price}</p>
+          </>
           ) : (
             <p>{foodItem.price} :-</p>
           )}
@@ -119,30 +150,31 @@ const handleUrlChange = (event) => {
         </div>
         
         {active ? (
-         
+            <>
             <input
             type="url"
             placeholder="https://example.com"
-            required
             pattern="https://.*"
-            onChange={handleUrlChange}
             className="url-input"
-          />
+            onChange={handleUrlChange}
+            onBlur={() => setTouchedInput({ ...touchedInput, img: true })}/>
+             <p className='img-message'>{validation.message.img}</p>
+             </>
           ) : (
+            
             <img src={foodItem.img} alt="info icon" />
           
           )}
           
           <div className="button-container">
           {!active ? (
-            
             <button className='pencil' onClick={() => toggleItemActive(foodItem.id)}>
               <FontAwesomeIcon icon={faPencil} />
               <span className="hover-text">redigera</span>
             </button>
           ) : (
             
-            <button className='save-button' onClick={handleSaveButton}>
+            <button className='save-button' disabled={!validation.isFormValid} onClick={handleSaveButton}>
               <img src={checkbox} alt="checkbox icon" />
               <span className="hover-text">spara</span>
             </button>
