@@ -56,25 +56,21 @@ const useCartStore = create((set, get) => ({
     }));
   },
 
-    removeFoodItem: (id) =>
-      set((state) => ({
-        foodDataList: state.foodDataList.filter((item) => item.id !== id)
-      })),
-    
-    updateFoodItem: (id, newData) =>
-      set((state) => ({
-        foodDataList: state.foodDataList.map((item) =>
-          item.id === id ? { ...item, ...newData } : item
-        ),
-      })),
+  removeFoodItem: (id) =>
+    set((state) => ({
+      foodDataList: state.foodDataList.filter((item) => item.id !== id),
+    })),
 
-	  addFoodItem: (item) =>
-		set((state) => ({
-		  foodDataList: [...state.foodDataList, item],
-		})),
-	  
-	  
-  
+  updateFoodItem: (id, newData) =>
+    set((state) => ({
+      foodDataList: state.foodDataList.map((item) => (item.id === id ? { ...item, ...newData } : item)),
+    })),
+
+  addFoodItem: (item) =>
+    set((state) => ({
+      foodDataList: [...state.foodDataList, item],
+    })),
+
   // klicka på pennan för att redigera maträtt
   toggleItemActive: (id) => {
     set((state) => {
@@ -97,4 +93,22 @@ function setTotalPrice(totalPrice, operator, price) {
     total += price;
   }
   return total;
+}
+
+async function saveFoodDataToAPI(foodDataList) {
+  try {
+    await fetch("url?method=save", {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        key: "basil-LSSSM",
+        value: { foodDataList },
+      }),
+    });
+  } catch (error) {
+    console.error("Kunde inte hämta api data:", error);
+  }
 }
