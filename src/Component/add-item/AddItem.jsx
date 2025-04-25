@@ -34,8 +34,8 @@ const AddItem = ({ onAddItem }) => {
     photo: "",
     category: "Sushi",
   });
-
   const [error, setError] = useState("");
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -60,7 +60,7 @@ const AddItem = ({ onAddItem }) => {
     const { error: validationError } = schema.validate(itemToValidate);
 
     if (validationError) {
-      console.log(validationError.details); // برای دیباگ
+      console.log(validationError.details);
       setError(validationError.details[0].message);
       return;
     }
@@ -80,75 +80,96 @@ const AddItem = ({ onAddItem }) => {
       category: "Sushi",
     });
     setError("");
+    setIsSubmitted(true); 
+  };
+
+  const handleReset = () => {
+    setIsSubmitted(false); 
+    setNewItem({
+      name: "",
+      description: "",
+      price: "",
+      photo: "",
+      category: "Sushi",
+    });
+    setError("");
   };
 
   return (
     <div className="admin-menu-container">
-      <h2>Menyhantering</h2>
-
-      <div className="admin-menu-form">
-        <input
-          type="text"
-          name="name"
-          placeholder="Maträttsnamn"
-          value={newItem.name}
-          onChange={handleInputChange}
-        />
-        <input
-          type="text"
-          name="description"
-          placeholder="Beskrivning"
-          value={newItem.description}
-          onChange={handleInputChange}
-        />
-        <input
-          type="number"
-          name="price"
-          placeholder="Pris (SEK)"
-          value={newItem.price}
-          onChange={handleInputChange}
-        />
-        <input
-          type="text"
-          name="photo"
-          placeholder="URL"
-          value={newItem.photo}
-          onChange={handleInputChange}
-        />
-        <select
-          name="category"
-          value={newItem.category}
-          onChange={handleInputChange}
-        >
-          <option value="Sushi">Sushi</option>
-          <option value="Dumplings">Dumplings</option>
-          <option value="Snacks">Snacks</option>
-          <option value="Drycker">Drycker</option>
-        </select>
-
-        <div className="admin-menu-form-buttons">
-          <button
-            className="cancel-button"
-            onClick={() =>
-              setNewItem({
-                name: "",
-                description: "",
-                price: "",
-                photo: "",
-                category: "Sushi",
-              })
-            }
-          >
-            Avbryt
-          </button>
-
-          <button className="add-button" onClick={handleAddItem}>
-            Lägg till
+      {isSubmitted ? (
+        <div className="success-message">
+          <h2>Maträtten har lagts till!</h2>
+          <button className="add-button" onClick={handleReset}>
+            Lägg till en ny maträtt
           </button>
         </div>
-      </div>
+      ) : (
+        <>
+          <h2>Menyhantering</h2>
+          <div className="admin-menu-form">
+            <input
+              type="text"
+              name="name"
+              placeholder="Maträttsnamn"
+              value={newItem.name}
+              onChange={handleInputChange}
+            />
+            <input
+              type="text"
+              name="description"
+              placeholder="Beskrivning"
+              value={newItem.description}
+              onChange={handleInputChange}
+            />
+            <input
+              type="number"
+              name="price"
+              placeholder="Pris (SEK)"
+              value={newItem.price}
+              onChange={handleInputChange}
+            />
+            <input
+              type="text"
+              name="photo"
+              placeholder="URL"
+              value={newItem.photo}
+              onChange={handleInputChange}
+            />
+            <select
+              name="category"
+              value={newItem.category}
+              onChange={handleInputChange}
+            >
+              <option value="Sushi">Sushi</option>
+              <option value="Dumplings">Dumplings</option>
+              <option value="Snacks">Snacks</option>
+              <option value="Drycker">Drycker</option>
+            </select>
 
-      {error && <p className="error-message">{error}</p>}
+            <div className="admin-menu-form-buttons">
+              <button
+                className="cancel-button"
+                onClick={() =>
+                  setNewItem({
+                    name: "",
+                    description: "",
+                    price: "",
+                    photo: "",
+                    category: "Sushi",
+                  })
+                }
+              >
+                Avbryt
+              </button>
+              <button className="add-button" onClick={handleAddItem}>
+                Lägg till
+              </button>
+            </div>
+          </div>
+          {error && <p className="error-message">{error}</p>}
+        </>
+      )}
     </div>
   );
 };
