@@ -4,7 +4,7 @@ import SideMenu from "../../Component/menu/SideMenu.jsx";
 import "./Menu.css";
 import heroImg from "../../assets/TemptAsian-Page-Header_1920x600-2.webp";
 import AddItem from "../../Component/add-item/AddItem.jsx";
-
+import Order from "../../Component/order/Order.jsx"
 function MenuPage() {
   const addFoodItem = useCartStore((state) => state.addFoodItem);
 
