@@ -1,5 +1,30 @@
 import { create } from 'zustand'
 import menuData from './menuData.js'
+import Joi from 'joi'
+
+
+
+const menuInputSchema = Joi.object({
+  storeName: Joi.string()
+  .min(2)
+  .max(100)
+  .required(),
+
+  storeDescription: Joi.string()
+  .min(5)
+  .max(300)
+  .required(),
+
+  storePrice: Joi.number()
+  .positive()
+  .precision(2)
+  .required(),
+
+  storeImg: Joi.string()
+  .uri().
+  required(), 
+});
+
 
 
 const useMenuStore = create((set) => ({
@@ -17,19 +42,9 @@ const useMenuStore = create((set) => ({
     setDescription: (newDesc) => set({ description: newDesc }),
     setPrice: (newPrice) => set({ price: newPrice }),
     setImg: (newImg) => set({ img: newImg }),
-
-    // toggleItemActive: (id) => {
-    //   set((state) => ({
-    //     foodDataList: state.foodDataList.map((item) =>
-    //       item.id === id ? { ...item, active: !item.active } : item
-    //     )
-    //   }));
-    // }
-    
-    
-    
+  
   }));
  
   
   
-  export {useMenuStore, useEditMenuStore};
+  export {useMenuStore, useEditMenuStore, menuInputSchema};

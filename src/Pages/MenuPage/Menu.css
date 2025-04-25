@@ -3,16 +3,16 @@
   background-color: var(--dark-background);
   padding-bottom: 1rem;
 
-  p {
-    font-size: 20px;
-  }
-
   h1 {
-    font-size: 40px;
+    font-size: clamp(34px, 5vw, 48px);
   }
 
   h2 {
-    font-size: 30px;
+    font-size: clamp(28px, 5vw, 32px);
+  }
+
+  p {
+    font-size: clamp(16px, 5vw, 20px);
   }
 }
 
@@ -69,7 +69,7 @@
     }
 
     > img {
-      max-width: 200px;
+      width: 200px;
       aspect-ratio: 4/3;
       object-fit: cover;
       border-radius: 5px;
@@ -85,7 +85,7 @@
       border: none;
       cursor: pointer;
       display: flex;
-      height: 35px;
+      height: 30px;
     }
 
     p {
@@ -97,8 +97,9 @@
 
 .side-menu {
   position: sticky;
-  top: 1rem;
+  top: 0rem;
   max-height: fit-content;
+  padding: 1rem 0 2rem;
 }
 
 .side-menu-option {
@@ -106,15 +107,21 @@
   gap: 0.5rem;
   align-items: center;
 
-  .chopstick-img {
-    fill: var(--white-color);
+  .side-menu-flex {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  img {
+    height: clamp(40px, 5vw, 50px);
   }
 
   a {
     color: var(--white-color);
-    font-size: 25px;
+    font-size: clamp(16px, 5vw, 25px);
     text-decoration: none;
-    margin: 1rem 0;
+    margin: 0.5rem 0;
 
     &:hover {
       color: var(--red-color);
@@ -124,60 +131,174 @@
 
 *:disabled {
   border: none;
-  background-color: #511013;
-  color: white;
+  background: var(--dark-red);
+  color: var(--white-color);
   display: none;
 }
-
-.pencil {
-  cursor: pointer;
-  background-color: #511013;
-  border: none;
-  color: white;
-  
-}
 .fa-pencil {
-  color: white;
+  color: var(--white-color);
   cursor: pointer;
   width: 28px;
-  height: 20px; 
-
+  height: 20px;
 }
 .add-edit-buttons {
   display: flex;
-  gap: 0.5em;
+  gap: 0.6em;
   align-items: flex-end;
-  justify-content: flex-end
-
+  justify-content: flex-end;
+  margin: 0.5em 0;
+  padding: 0 0.2em;
 }
-.add-item-button .edit-item-button {
-  width: 60px;
-  height: 25px;
+.add-item-button,
+.edit-item-button {
+  width: 90px;
+  height: 40px;
   padding: 0.4em 0.2em;
+  margin: 0.3em 0;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 17px;
+  font-weight: bold;
 }
 .button-container {
   display: flex;
-  gap: 0.8em;
   flex-direction: column;
 }
-.save-button {
+.delete-button,
+.save-button,
+.pencil {
   cursor: pointer;
-  background-color: #511013;
+  background: var(--dark-red);
   border: none;
-  color: white;
+  color: var(--white-color);
+  padding: 3px 6px;
+  position: relative;
+  width: 40px;
 }
-.delete-button {
-  cursor: pointer;
-  background-color: #511013;
-  border: none;
-  color: white;
-  
+
+.delete-button img {
+  width: 24px;
+}
+.save-button img {
+  width: 24px;
+}
+.pencil img {
+  width: 30px;
 }
 .button-container {
   display: none;
 }
 
 .menu.show-buttons .button-container {
-  display: flex; 
-  gap: 0.5rem;
+  display: flex;
+  gap: 1rem;
+}
+.menu-item input {
+  margin: 0.3em 0;
+  padding: 0.3em;
+  font-size: 16px;
+}
+.price-input {
+  width: 60px;
+  height: 35px;
+}
+
+.description-input {
+  width: 280px;
+  height: 35px;
+}
+.url-input {
+  max-width: 190px;
+}
+.name-input {
+  width: 200px;
+  height: 35px;
+}
+.pencil .hover-text,
+.save-button .hover-text,
+.delete-button .hover-text {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--white-color);
+  background-color: rgb(31, 30, 30);
+  font-size: 15px;
+  white-space: nowrap;
+  z-index: 10;
+  display: none;
+}
+
+.pencil:hover .hover-text,
+.save-button:hover .hover-text,
+.delete-button:hover .hover-text {
+  display: block;
+}
+.edit-item-button.disabled {
+  opacity: 0.5;
+  pointer-events: none;
+  cursor: default;
+}
+
+@media (max-width: 1000px) {
+  .menu-item {
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .menu-flex {
+    justify-content: space-between;
+    width: 100%;
+  }
+}
+
+@media (max-width: 750px) {
+  .menu-grid {
+    grid-template-columns: 1fr;
+
+    .side-menu {
+      background-color: var(--dark-background);
+      display: flex;
+      gap: 1rem;
+      overflow-x: auto;
+    }
+  }
+}
+
+@media (max-width: 460px) {
+  .menu-page {
+    padding: 0;
+
+    .menu-grid {
+      margin: 0;
+
+      .side-menu {
+        padding: 1rem;
+      }
+
+      .menu {
+        border-radius: 0;
+
+        .menu-item {
+          padding: 1rem 0;
+        }
+
+        .menu-flex {
+          gap: 0.5rem;
+          flex-wrap: wrap;
+
+          > img {
+            width: 112px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 354px) {
+  .button-container {
+    gap: 0.5rem;
+    flex-direction: row;
+  }
 }
