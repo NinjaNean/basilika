@@ -44,11 +44,12 @@ function Order() {
                       <img className="icon" src={plusImg} alt="plus icon" />
                     </button>
                   </div>
-                  <div className="cart-cell">
-                    <img className="order-img" src={item.img} alt="" /> {item.name} {item.price}:-
+                  <div className="cart-item">
+                    <img className="order-img" src={item.img} alt="" /> <span className="cart-info">{item.name} 
+                      <p>{item.price}:-</p></span>
                   </div>
                   <div className="cart-cell">
-                    {findQuantity(item.id) * item.price}:-
+                    <p>{findQuantity(item.id) * item.price}:-</p>
                   </div>
                 </div>
               ))
@@ -56,7 +57,7 @@ function Order() {
         </div>
 
         <div className="cart-footer">
-          <p className="cart-heading two">Totalpris</p>
+          <p className="cart-heading">Totalpris</p>
           <div className="total-price">{totalPrice}:-</div>
         </div>
       </div>
