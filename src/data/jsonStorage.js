@@ -1,8 +1,6 @@
 const url = "https://forverkliga.se/JavaScript/api/jsonStore.php";
 
 async function saveFoodDataToAPI(foodDataList) {
-  console.log("hej");
-
   try {
     await fetch(`${url}?method=save`, {
       method: "POST",

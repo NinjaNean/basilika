@@ -1,10 +1,12 @@
 import { create } from "zustand";
-import { menuData } from "./menuData";
+import { getMenuFromAPI, saveFoodDataToAPI } from "./jsonStorage";
 
 const useCartStore = create((set, get) => ({
   cart: [],
   totalPrice: 0,
-  foodDataList: menuData,
+  foodDataList: [],
+
+  setFoodData: (data) => set({ foodDataList: data }),
 
   addToCart: (menuOption) => {
     const { cart, totalPrice } = get();
@@ -56,30 +58,46 @@ const useCartStore = create((set, get) => ({
     }));
   },
 
-  removeFoodItem: (id) =>
+  removeFoodItem: async (id) => {
+    const { foodDataList } = get();
+
+    // Uppdatera staten genom att ta bort den specifika matvaran
     set((state) => ({
       foodDataList: state.foodDataList.filter((item) => item.id !== id),
-    })),
+    }));
 
-  updateFoodItem: (id, newData) =>
+    // Skicka den uppdaterade listan till API efter att staten har uppdaterats
+    await saveFoodDataToAPI(foodDataList.filter((item) => item.id !== id));
+  },
+
+  updateFoodItem: async (id, newData) => {
+    const { foodDataList } = get();
+
     set((state) => ({
       foodDataList: state.foodDataList.map((item) => (item.id === id ? { ...item, ...newData } : item)),
-    })),
+    }));
 
-  addFoodItem: (item) =>
+    await saveFoodDataToAPI(
+      foodDataList.map((item) => (item.id === id ? { ...item, ...newData, active: !item.active } : item))
+    );
+  },
+
+  addFoodItem: async (item) => {
+    const { foodDataList } = get();
+
     set((state) => ({
-      foodDataList: [...state.foodDataList, item],
+      foodDataList: [...state.foodDataList, { ...item, active: false }],
     })),
+      await saveFoodDataToAPI([...foodDataList, item]);
+  },
 
   // klicka på pennan för att redigera maträtt
-  toggleItemActive: (id) => {
+  toggleItemActive: async (id) =>
     set((state) => {
-      console.log("menuStore: toggleItemActive", id);
       return {
         foodDataList: state.foodDataList.map((item) => (item.id === id ? { ...item, active: !item.active } : item)),
       };
-    });
-  },
+    }),
 }));
 
 export default useCartStore;
@@ -93,22 +111,4 @@ function setTotalPrice(totalPrice, operator, price) {
     total += price;
   }
   return total;
-}
-
-async function saveFoodDataToAPI(foodDataList) {
-  try {
-    await fetch("url?method=save", {
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        key: "basil-LSSSM",
-        value: { foodDataList },
-      }),
-    });
-  } catch (error) {
-    console.error("Kunde inte hämta api data:", error);
-  }
 }

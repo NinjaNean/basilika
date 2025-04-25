@@ -15,7 +15,13 @@ function Order() {
 
   return (
     <div className={`cart-wrapper ${isOpen ? "open" : ""}`} onClick={() => setIsOpen(!isOpen)}>
-      <button className="toggle-button" onClick={(e) => { e.        stopPropagation(); setIsOpen(!isOpen); }}>
+      <button
+        className="toggle-button"
+        onClick={(e) => {
+          e.stopPropagation();
+          setIsOpen(!isOpen);
+        }}
+      >
         {isOpen ? "Stäng" : "Se din beställning här!"}
       </button>
       <div className="cart" onClick={(e) => e.stopPropagation()}>
@@ -36,20 +42,28 @@ function Order() {
               .map((item) => (
                 <div className="cart-row" key={item.id}>
                   <div className="cart-cell">
-                    <button onClick={(e) => { e.stopPropagation(); removeFromCart(item); }}>
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        removeFromCart(item);
+                      }}
+                    >
                       <img className="icon" src={minusImg} alt="minus icon" />
                     </button>
                     <span className="order-quantity">{findQuantity(item.id)}</span>
-                    <button onClick={(e) => { e.stopPropagation(); addToCart(item); }}>
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        addToCart(item);
+                      }}
+                    >
                       <img className="icon" src={plusImg} alt="plus icon" />
                     </button>
                   </div>
                   <div className="cart-cell">
                     <img className="order-img" src={item.img} alt="" /> {item.name} {item.price}:-
                   </div>
-                  <div className="cart-cell">
-                    {findQuantity(item.id) * item.price}:-
-                  </div>
+                  <div className="cart-cell">{findQuantity(item.id) * item.price}:-</div>
                 </div>
               ))
           )}

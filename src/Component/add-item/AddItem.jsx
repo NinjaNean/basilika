@@ -3,20 +3,27 @@ import Joi from "joi";
 import "./AddItem.css";
 
 const schema = Joi.object({
-  name: Joi.string().pattern(/^[A-Za-zÅÄÖåäö ,]+$/).required().messages({
-    "string.empty": "Fältet namn är obligatoriskt.",
-    "string.pattern.base": "Namnet får endast innehålla bokstäver, mellanslag و kommatecken.",
-  }),
-  description: Joi.string().pattern(/^[A-Za-zÅÄÖåäö ,]+$/).required().messages({
-    "string.empty": "Fältet beskrivning är obligatoriskt.",
-    "string.pattern.base": "Beskrivningen får endast innehålla bokstäver, mellanslag و kommatecken.",
-  }),
+  name: Joi.string()
+    .pattern(/^[A-Za-zÅÄÖåäö ,]+$/)
+    .required()
+    .messages({
+      "string.empty": "Fältet namn är obligatoriskt.",
+      "string.pattern.base": "Namnet får endast innehålla bokstäver, mellanslag و kommatecken.",
+    }),
+  description: Joi.string()
+    .pattern(/^[A-Za-zÅÄÖåäö ,]+$/)
+    .max(110)
+    .required()
+    .messages({
+      "string.empty": "Fältet beskrivning är obligatoriskt.",
+      "string.pattern.base": "Beskrivningen får endast innehålla bokstäver, mellanslag و kommatecken.",
+    }),
   price: Joi.number().positive().required().messages({
     "number.base": "Priset måste vara ett nummer.",
     "number.positive": "Priset måste vara ett positivt tal.",
     "any.required": "Fältet pris är obligatoriskt.",
   }),
-  photo: Joi.string().uri().required().messages({
+  img: Joi.string().uri().required().messages({
     "string.uri": "Vänligen ange en giltig URL.",
     "string.empty": "Fältet URL är obligatoriskt.",
     "any.required": "Fältet URL är obligatoriskt.",
@@ -31,7 +38,7 @@ const AddItem = ({ onAddItem }) => {
     name: "",
     description: "",
     price: "",
-    photo: "",
+    img: "",
     category: "Sushi",
   });
   const [error, setError] = useState("");
@@ -68,7 +75,7 @@ const AddItem = ({ onAddItem }) => {
     const item = {
       ...itemToValidate,
       id: Date.now(),
-      active: true,
+      active: false,
     };
 
     onAddItem(item);
@@ -76,20 +83,20 @@ const AddItem = ({ onAddItem }) => {
       name: "",
       description: "",
       price: "",
-      photo: "",
+      img: "",
       category: "Sushi",
     });
     setError("");
-    setIsSubmitted(true); 
+    setIsSubmitted(true);
   };
 
   const handleReset = () => {
-    setIsSubmitted(false); 
+    setIsSubmitted(false);
     setNewItem({
       name: "",
       description: "",
       price: "",
-      photo: "",
+      img: "",
       category: "Sushi",
     });
     setError("");
@@ -129,18 +136,8 @@ const AddItem = ({ onAddItem }) => {
               value={newItem.price}
               onChange={handleInputChange}
             />
-            <input
-              type="text"
-              name="photo"
-              placeholder="URL"
-              value={newItem.photo}
-              onChange={handleInputChange}
-            />
-            <select
-              name="category"
-              value={newItem.category}
-              onChange={handleInputChange}
-            >
+            <input type="text" name="img" placeholder="URL" value={newItem.img} onChange={handleInputChange} />
+            <select name="category" value={newItem.category} onChange={handleInputChange}>
               <option value="Sushi">Sushi</option>
               <option value="Dumplings">Dumplings</option>
               <option value="Snacks">Snacks</option>
@@ -155,7 +152,7 @@ const AddItem = ({ onAddItem }) => {
                     name: "",
                     description: "",
                     price: "",
-                    photo: "",
+                    img: "",
                     category: "Sushi",
                   })
                 }
