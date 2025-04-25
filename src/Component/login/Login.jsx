@@ -1,64 +1,3 @@
-/*import React, { useState } from "react";
-import "./Login.css";
-import { FaLock } from "react-icons/fa";
-import { useNavigate } from "react-router";
-import { HashLink } from "react-router-hash-link";
-
-function Login() {
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
-  const [success, setSuccess] = useState("");
-  const navigate = useNavigate();
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    if (password.trim() === "") {
-      setError("Password is required");
-      setSuccess("");
-      return;
-    }
-
-    if (password === "mums") {
-      setError("");
-      setSuccess("Login successful! Redirecting...");
-      localStorage.setItem("isLoggedIn", "true"); 
-      setTimeout(() => {
-        navigate("/menu"); // redirects after 1.5 seconds
-      }, 1500);
-    } else {
-      setError("Incorrect password. Please try again.");
-      setSuccess("");
-    }
-  };
-
-  return (
-    <div className="login-container">
-      <h2>Employee Login</h2>
-      <form onSubmit={handleSubmit}>
-        <div className="input-group">
-          <FaLock className="icon" />
-          <input
-            type="password"
-            placeholder="Enter password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </div>
-
-        {error && <p className="error-text">{error}</p>}
-        {success && <p className="success-text">{success}</p>}
-
-        <button type="submit" className="login-btn">
-          Log In
-        </button>
-      </form>
-    </div>
-  );
-}
-export default Login;
-*/
-
 import React, { useState } from "react";
 import "./Login.css";
 import { FaLock } from "react-icons/fa";
@@ -71,6 +10,7 @@ function Login() {
   const [success, setSuccess] = useState("");
   const navigate = useNavigate();
 
+  // Validation schema using Joi
   const schema = Joi.object({
     password: Joi.string().min(4).required().messages({
       "string.empty": "Lösenord krävs",
@@ -78,8 +18,10 @@ function Login() {
     }),
   });
 
+  // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
+
     const { error } = schema.validate({ password });
 
     if (error) {
@@ -104,22 +46,26 @@ function Login() {
 
   return (
     <div className="login-container">
-      <h2>Anställd login</h2>
+      <h2>Admin login</h2>
       <form onSubmit={handleSubmit}>
         <div className="input-group">
           <FaLock className="icon" />
           <input
-            type="Ange lösenord"
+            type="password"
+            placeholder="Ange lösenord"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
         {error && <p className="error-text">{error}</p>}
         {success && <p className="success-text">{success}</p>}
-        <button type="submit" className="login-btn">Logga in</button>
+        <button type="submit" className="login-btn">
+          Logga in
+        </button>
       </form>
     </div>
   );
 }
 
 export default Login;
+
