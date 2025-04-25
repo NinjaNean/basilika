@@ -3,13 +3,13 @@ import Joi from "joi";
 import "./AddItem.css";
 
 const schema = Joi.object({
-  name: Joi.string().pattern(/^[A-Za-zÅÄÖåäö ]+$/).required().messages({
+  name: Joi.string().pattern(/^[A-Za-zÅÄÖåäö ,]+$/).required().messages({
     "string.empty": "Fältet namn är obligatoriskt.",
-    "string.pattern.base": "Namnet får endast innehålla bokstäver och mellanslag.",
+    "string.pattern.base": "Namnet får endast innehålla bokstäver, mellanslag و kommatecken.",
   }),
-  description: Joi.string().pattern(/^[A-Za-zÅÄÖåäö ]+$/).required().messages({
+  description: Joi.string().pattern(/^[A-Za-zÅÄÖåäö ,]+$/).required().messages({
     "string.empty": "Fältet beskrivning är obligatoriskt.",
-    "string.pattern.base": "Beskrivningen får endast innehålla bokstäver och mellanslag.",
+    "string.pattern.base": "Beskrivningen får endast innehålla bokstäver, mellanslag و kommatecken.",
   }),
   price: Joi.number().positive().required().messages({
     "number.base": "Priset måste vara ett nummer.",
@@ -32,7 +32,7 @@ const AddItem = ({ onAddItem }) => {
     description: "",
     price: "",
     photo: "",
-    category: "Sushi", 
+    category: "Sushi",
   });
 
   const [error, setError] = useState("");
@@ -41,7 +41,7 @@ const AddItem = ({ onAddItem }) => {
     const { name, value } = e.target;
 
     if (name === "name" || name === "description") {
-      const newValue = value.replace(/[^A-Za-zÅÄÖåäö ]/g, "");
+      const newValue = value.replace(/[^A-Za-zÅÄÖåäö ,]/g, "");
       setNewItem((prev) => ({ ...prev, [name]: newValue }));
     } else if (name === "price") {
       const numericValue = value.replace(/[^0-9]/g, "");
@@ -60,6 +60,7 @@ const AddItem = ({ onAddItem }) => {
     const { error: validationError } = schema.validate(itemToValidate);
 
     if (validationError) {
+      console.log(validationError.details); // برای دیباگ
       setError(validationError.details[0].message);
       return;
     }
