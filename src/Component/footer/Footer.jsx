@@ -1,8 +1,7 @@
 import './Footer.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTwitter, faFacebook, faInstagram } from '@fortawesome/free-brands-svg-icons'; 
-import smallMap from '../../assets/smallMap.png';
-import smallLogo from '../../assets/smallLogo.png';
+
 
 
 const Footer = () => {
@@ -14,11 +13,11 @@ const Footer = () => {
                 <div className="footer-heading1">
 
                     <h4>バジル Basil</h4>
-                    <p className='footer-text'>Taste our dishes with origin in asian cuisine</p>
+                    <p className='footer-text'>Testa våra rätter med ursprung ur det asiatiska köket</p>
                 </div>
 
                 <div className="footer-heading1">
-                    <h4>Contact</h4>
+                    <h4>Kontakt</h4>
                     <p className='footer-text'> basil@gmail.se </p>
                     <p className='footer-text'> 031-123456 </p>
                         <section className='footer-font'>
@@ -34,18 +33,18 @@ const Footer = () => {
                 <div className="footer-heading1">
                     <h4>Adress</h4>
                     <p className='footer-text'>Redegatan 2 </p>
-                    <p className='footer-text'> 42155 Gothenburg</p>
+                    <p className='footer-text'> 42155 Göteborg</p>
                 </div>
 
                 <div className="footer-heading1">
                     <h4>Find us</h4>
-                    <p className='footer-text'>We are 100m from the city bus stop</p>
-                    {/* <img src={smallMap} alt="small map" /> */}
+                    <p className='footer-text'>Du hittar oss 100m från busshållpats</p>
+                   
                 </div>
             </section>
             
                 <section className='footer-source'>
-                    <p className='source'> Developed by Sally, Linnéa, Shweta, Malahat and Sara </p>
+                    <p className='source'> Utvecklad av Sally, Linnéa, Shweta, Malahat och Sara </p>
                 </section>
                 </div>
         </footer>

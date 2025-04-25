@@ -3,7 +3,8 @@
 import React, { useEffect, useState } from "react";
 import MenuItem from "./MenuItem.jsx";
 import useCartStore from "../../data/cartStore.js";
-import { menuData } from "../../data/menuData.js";
+import menuData from "../../data/menuData.js";
+
 
 function Menu() {
   const { foodDataList, totalPrice, toggleItemActive } = useCartStore();
@@ -36,7 +37,9 @@ function Menu() {
             {editClick ? "Klart" : "Redigera"}
           </button>
           <button className="add-item-button">Lägg till</button>
-          <button className="logout-button" onClick={handleLogout}>Logga ut</button>
+          <button className="logout-button" onClick={handleLogout}>
+            Logga ut
+          </button>
         </div>
       )}
 
@@ -46,11 +49,7 @@ function Menu() {
           {foodDataList
             .filter((item) => item.category === category)
             .map((foodItem) => (
-              <MenuItem
-                key={foodItem.id}
-                foodItem={foodItem}
-                active={foodItem.active}
-              />
+              <MenuItem key={foodItem.id} foodItem={foodItem} active={foodItem.active} />
             ))}
         </div>
       ))}

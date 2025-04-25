@@ -10,8 +10,8 @@ function SideMenu() {
       {sideMenu.map((category) => {
         return (
           <div className="side-menu-option" key={category}>
-            <img src={sideMenuImg} alt="Chopsticks" />
-            <HashLink smooth to={`#${category}`}>
+            <HashLink className="side-menu-flex" smooth to={`#${category}`}>
+              <img src={sideMenuImg} alt="Chopsticks" />
               {category}
             </HashLink>
           </div>
