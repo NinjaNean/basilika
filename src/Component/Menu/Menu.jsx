@@ -8,7 +8,7 @@ function Menu() {
   const { foodDataList, totalPrice, toggleItemActive } = useCartStore();
   const categories = ["Sushi", "Dumplings", "Snacks", "Drycker"];
   const [editClick, setEditClick] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(null); // Start as null to avoid flickering
+  const [isLoggedIn, setIsLoggedIn] = useState(null); 
   const [menuItems, setMenuItems] = useState(menuData);
 
   useEffect(() => {
@@ -31,9 +31,10 @@ function Menu() {
     <div className={`menu ${editClick ? "show-buttons" : ""}`}>
       {isLoggedIn && (
         <div className="add-edit-buttons">
-          <button className="edit-item-button" onClick={handleEditClick}>
-            {editClick ? "Klart" : "Redigera"}
-          </button>
+          <button 
+       className={`edit-item-button ${editClick ? "edit-mode" : ""}`} 
+       onClick={handleEditClick}> {editClick ? "Klart" : "Redigera"}
+      </button>
           <button className="add-item-button">Lägg till</button>
           <button className="logout-button" onClick={handleLogout}>
             Logga ut
