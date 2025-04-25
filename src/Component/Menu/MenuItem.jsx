@@ -25,8 +25,15 @@ function MenuItem({ foodItem, active }) {
     storeImg: foodItem.img,
   }) 
 
-  const {css, message, isFormValid } = validateInput(form, touchedInput);
-  console.log(css, message)
+  const [validation, setValidation] = useState({
+    css: {},
+    message: {},
+    isFormValid: false,
+  });
+  useEffect(() => {
+  const result = validateInput(form, touchedInput);
+  setValidation(result);
+}, [form, touchedInput]);
 
 
   const { updateFoodItem } = useCartStore();
@@ -41,7 +48,6 @@ function MenuItem({ foodItem, active }) {
   }, [foodItem]);
 
   useEffect(() => { 
-    console.log(form)
   },[form]
   )
   
@@ -62,10 +68,12 @@ const { removeFoodItem } = useCartStore();
 const handleDeleteMenuItem = () => {
   removeFoodItem(foodItem.id);
 };
-const handleUrlChange = (event) => {
-  const url = event.target.value;
-  console.log("Entered URL:", url);
+const handleUrlChange = (e) => {
+  const url = e.target.value;
+  setForm((prev) => ({ ...prev, storeImg: url }));
+  setTouchedInput((prev) => ({ ...prev, img: true }));
 };
+
 
   const num = cart.find((item) => {
     if (item === undefined) {
@@ -87,7 +95,7 @@ const handleUrlChange = (event) => {
             className="name-input"
             onBlur={() => setTouchedInput({ ...touchedInput, name: true })}
           />
-          <p>{message.name}</p>
+          <p className='name-message'>{validation.message.name}</p>
           </>
         ) : (
           <h2>{foodItem.name}</h2>
@@ -102,7 +110,7 @@ const handleUrlChange = (event) => {
             className="description-input"
             onBlur={() => setTouchedInput({ ...touchedInput, description: true })}
           />
-          <p>{message.description}</p>
+          <p className='description-message'>{validation.message.description}</p>
           </>
         ) : (
           <p>{foodItem.description}</p>
@@ -121,8 +129,7 @@ const handleUrlChange = (event) => {
               onChange={(e) => setForm({ ...form, storePrice: e.target.value })}
               className="price-input"
               onBlur={() => setTouchedInput({ ...touchedInput, price: true })}/>
-              
-            <p>{message.price}</p>
+            <p className='price-message'>{validation.message.price}</p>
           </>
           ) : (
             <p>{foodItem.price} :-</p>
@@ -147,12 +154,11 @@ const handleUrlChange = (event) => {
             <input
             type="url"
             placeholder="https://example.com"
-            required
             pattern="https://.*"
-            onChange={handleUrlChange}
             className="url-input"
+            onChange={handleUrlChange}
             onBlur={() => setTouchedInput({ ...touchedInput, img: true })}/>
-             <p>{message.img}</p>
+             <p className='img-message'>{validation.message.img}</p>
              </>
           ) : (
             
@@ -162,14 +168,13 @@ const handleUrlChange = (event) => {
           
           <div className="button-container">
           {!active ? (
-            
             <button className='pencil' onClick={() => toggleItemActive(foodItem.id)}>
               <FontAwesomeIcon icon={faPencil} />
               <span className="hover-text">redigera</span>
             </button>
           ) : (
             
-            <button className='save-button' disabled={isFormValid} onClick={handleSaveButton}>
+            <button className='save-button' disabled={!validation.isFormValid} onClick={handleSaveButton}>
               <img src={checkbox} alt="checkbox icon" />
               <span className="hover-text">spara</span>
             </button>

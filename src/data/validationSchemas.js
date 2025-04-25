@@ -4,35 +4,42 @@ import Joi from 'joi'
 const validationSchema = Joi.object({
   storeName: Joi.string()
   .min(4)
-  .max(30)
-  .required(),
+  .max(22)
+  .required()
+  .pattern(/^[a-zA-ZåäöÅÄÖ\s,.]*$/),
 
   storeDescription: Joi.string()
   .min(5)
-  .max(100)
-  .required(),
+  .max(80)
+  .required()
+  .pattern(/^[a-zA-ZåäöÅÄÖ\s,.]*$/),
+
 
   storePrice: Joi.number()
   .positive()
   .precision(2)
-  .required(),
+  .required()
+  .min(0)
+  .precision(2),
 
   storeImg: Joi.string()
-  .uri().
-  required(), 
+  .uri()
+  .required(), 
 });
 
 function validateInput(Form, touchedInput) {
+    
+
     let css = {
 		name: '',
 		description: '',
         price: '',
         img: ''
 	}
-	if( touchedInput.name ) css.name = 'valid'
-	if( touchedInput.description ) css.description = 'valid'
-    if( touchedInput.price ) css.price = 'valid'
-    if( touchedInput.img ) css.img = 'valid'
+	if( touchedInput.name ) css.name = 'invalid'
+	if( touchedInput.description ) css.description = 'invalid'
+    if( touchedInput.price ) css.price = 'invalid'
+    if( touchedInput.img ) css.img = 'invalid'
 	
 
 	let message = {
@@ -41,7 +48,7 @@ function validateInput(Form, touchedInput) {
         price: '',
         img: ''
 	}
-	const results = validationSchema.validate(Form)
+	const results = validationSchema.validate(Form,  { abortEarly: false })
     console.log( results)
 
 if( results.error ) {
@@ -53,24 +60,44 @@ if( results.error ) {
            
         css[key] = 'invalid'
         }
+        const regex = /^[a-zA-ZåäöÅÄÖ\s,.]*$/;
 
-			if( key === 'name' ) {
-				message.name = 'Skriv in namn på maträtt.'
+			if( key === 'storeName' ) {
+				message.name = 'Skriv in namn på maträtt, minst 4 tecken.'
+                if (Form.storeName.length > 22) { 
+                    message.name = 'Max 22 bokstäver.';
+                }
+                
+                if (!regex.test(Form.storeName)) {
+                  message.name = 'Endast (a-z, åäö,.) och mellanslag är tillåtna.';
+                }
+              
 			}
-			else if( key === 'description' ) {
-					message.description = 'Ge en beskrivning av maträtten.'
+			else if( key === 'storeDescription' ) {
+					message.description = 'Ge en beskrivning av maträtten, minst 5 tecken.'
+                    if (Form.storeDescription.length > 80) { 
+                        message.description = 'Max 80 bokstäver.';
+                    }
+                    if (!regex.test(Form.storeDescription)) {
+                        message.description = 'Endast (a-z, åäö,.) och mellanslag är tillåtna.';
+                      }
 			}
-            else if( key === 'price' ) {
-                    message.price = 'Skriv in det nya priset.'
+            else if( key === 'storePrice' ) {
+                    message.price = 'Ange det nya priset.'
+                    if (Form.storePrice < 0) { 
+                        message.price = 'Priset kan inte vara under 0.';
+                    }
             }
-            else if( key === 'img' ) {
-                    message.img = 'Skriv in en giltig URL.'
+            else if( key === 'storeImg' ) {
+                    message.img = 'Skriv in en giltig URL-adress.'
             }
 			
 		})
 	}
 	const isFormValid = !results.error
+    console.log("isFormValid:", isFormValid);
         return { css, message, isFormValid }
+        
 }
 
 

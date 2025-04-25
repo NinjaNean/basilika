@@ -131,7 +131,7 @@
   border: none;
   background: var(--dark-red);
   color: var(--white-color);
-  /* display: none; */
+  display: none;
 }
 .fa-pencil {
   color: var(--white-color);
@@ -148,7 +148,8 @@
   padding: 0 0.2em; 
 
 }
-.add-item-button, .edit-item-button {
+.add-item-button, .edit-item-button, 
+.logout-button {
   width: 90px;
   height: 40px;
   padding: 0.4em 0.2em;
@@ -163,7 +164,8 @@
   display: flex;
   flex-direction: column;
 }
-.delete-button, .save-button, .pencil {
+.delete-button, .save-button, 
+.pencil {
   cursor: pointer;
   background: var(--dark-red);
   border: none;
@@ -171,6 +173,9 @@
   padding: 3px 6px;
   position: relative;
   width: 40px;
+}
+.save-button:disabled {
+  color: rgb(104, 99, 99)
 }
 
 .delete-button img {
@@ -200,7 +205,8 @@
 }
 .price-input {
   width: 60px;
-  height: 35px;
+  height: 40px;
+  font-size: 18px;
   
 } 
   
@@ -217,7 +223,15 @@
 .name-input {
   width: 200px;
   height: 35px;
-  
+
+}
+
+p.img-message, p.price-message,
+ p.description-message, p.name-message {
+    margin: 0.2em 0;
+    font-size: 16px;
+    color: rgb(178, 176, 176);
+
 }
 .pencil .hover-text,
 .save-button .hover-text,
@@ -232,7 +246,6 @@
   white-space: nowrap;
   z-index: 10;
   display: none;
-  
 }
 
 .pencil:hover .hover-text,
@@ -240,11 +253,7 @@
 .delete-button:hover .hover-text {
   display: block;
 }
-.edit-item-button.disabled {
-  opacity: 0.5;
-  pointer-events: none; 
-  cursor: default;
-}
+
 
 @media (max-width: 1000px) {
   .menu-item {
