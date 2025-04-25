@@ -1,0 +1,99 @@
+.admin-menu-container {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background-color: #333;
+	padding: 2rem;
+	border-radius: 10px;
+	width: 500px;
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+	z-index: 1000;
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  }
+  
+  .admin-menu-form {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+  }
+  
+  .admin-menu-form input {
+	padding: 0.75rem;
+	border: none;
+	border-radius: 5px;
+	font-size: 1rem;
+  }
+  
+  .admin-menu-form-buttons {
+	display: flex;
+	justify-content: space-between;
+  }
+  
+  .cancel-button {
+	background-color: #801313;
+	color: #fff;
+	padding: 0.75rem 1.5rem;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	flex: 1;
+	margin-right: 0.5rem;
+  }
+  
+  .add-button {
+	background-color: #2e0f0f;
+	color: #fff;
+	padding: 0.75rem 1.5rem;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	flex: 1;
+	margin-left: 0.5rem;
+  }
+  
+  .error-message {
+	color: #ff6b6b;
+	margin-top: 1rem;
+	text-align: center;
+  }
+  /* ✅ Mobile: 320px ta 749px */
+@media (max-width: 749px) {
+	.admin-menu-container {
+	  width: 90%;
+	  padding: 1.5rem;
+	}
+  
+	.admin-menu-form input {
+	  font-size: 0.9rem;
+	  padding: 0.6rem;
+	}
+  
+	.cancel-button, .add-button {
+	  padding: 0.6rem 1rem;
+	  font-size: 0.9rem;
+	}
+  }
+  
+  @media (min-width: 750px) and (max-width: 1099px) {
+	.admin-menu-container {
+	  width: 70%;
+	  padding: 2rem;
+	}
+  
+	.admin-menu-form input {
+	  font-size: 1rem;
+	  padding: 0.7rem;
+	}
+  
+	.cancel-button, .add-button {
+	  padding: 0.7rem 1.2rem;
+	  font-size: 1rem;
+	}
+  }
+  
+ 
+  
+  

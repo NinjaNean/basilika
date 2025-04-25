@@ -2,7 +2,6 @@
   position: absolute;
   right: 4em;
   cursor: pointer;
- 
 }
 .nav-links {
   display: block;
@@ -35,11 +34,7 @@
   font-size: 30px;
   font-weight: bold;
   color: black;
-  display: block;
-  text-align: center;
   padding: 0.3em 0.5em;
-  width: 25%;
-  margin: 1rem;
 }
 .lock {
   padding: 0 0.4em;
