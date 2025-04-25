@@ -56,16 +56,25 @@ const useCartStore = create((set, get) => ({
     }));
   },
 
-  removeFoodItem: (id) =>
-    set((state) => ({
-      foodDataList: state.foodDataList.filter((item) => item.id !== id),
-    })),
+    removeFoodItem: (id) =>
+      set((state) => ({
+        foodDataList: state.foodDataList.filter((item) => item.id !== id)
+      })),
+    
+    updateFoodItem: (id, newData) =>
+      set((state) => ({
+        foodDataList: state.foodDataList.map((item) =>
+          item.id === id ? { ...item, ...newData } : item
+        ),
+      })),
 
-  updateFoodItem: (id, newData) =>
-    set((state) => ({
-      foodDataList: state.foodDataList.map((item) => (item.id === id ? { ...item, ...newData } : item)),
-    })),
-
+	  addFoodItem: (item) =>
+		set((state) => ({
+		  foodDataList: [...state.foodDataList, item],
+		})),
+	  
+	  
+  
   // klicka på pennan för att redigera maträtt
   toggleItemActive: (id) => {
     set((state) => {
