@@ -106,9 +106,9 @@ function setTotalPrice(totalPrice, operator, price) {
   let total = totalPrice;
 
   if (operator === "-") {
-    total -= price;
+    total -= Number(price);
   } else {
-    total += price;
+    total += Number(price);
   }
   return total;
 }
