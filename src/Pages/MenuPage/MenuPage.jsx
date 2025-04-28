@@ -8,14 +8,14 @@ import { getMenuFromAPI, saveFoodDataToAPI } from "../../data/jsonStorage.js";
 import { menuData } from "../../data/menuData.js";
 
 function MenuPage() {
-  useEffect(() => {
-    const fetchData = async () => {
-      const result = await getMenuFromAPI();
-      console.log(result);
-    };
+  //   useEffect(() => {
+  //     const fetchData = async () => {
+  //       const result = await getMenuFromAPI();
+  //       console.log(result);
+  //     };
 
-    fetchData();
-  }, []);
+  //     fetchData();
+  //   }, []);
 
   return (
     <div className="menu-page">
