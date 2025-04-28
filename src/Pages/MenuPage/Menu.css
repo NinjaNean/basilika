@@ -121,10 +121,13 @@
     font-size: clamp(16px, 5vw, 25px);
     text-decoration: none;
     margin: 0.5rem 0;
+    transition: color 0.8s ease, transform 0.5s ease;
 
     &:hover {
       color: var(--red-color);
+      transform: scale(1.02);
     }
+
   }
 }
 
@@ -156,10 +159,19 @@
   padding: 0.4em 0.2em;
   margin: 0.3em 0;
   cursor: pointer;
-  border-radius: 4px;
-  font-size: 17px;
-  font-weight: bold;
+  border-radius: 5px;
+  font-size: 16px;
+  border: none;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+
+  &:hover {
+    color: var(--red-color);
+    background-color: var(--white-color);
+    transform: scale(1.05);
+    
+  }
 }
+
 .button-container {
   display: flex;
   flex-direction: column;
@@ -174,6 +186,14 @@
   padding: 3px 6px;
   position: relative;
   width: 40px;
+  transition: background-color 0.3s ease, transform 0.3s ease, border 0.3s ease;
+
+  &:hover {
+  border: 1px solid rgb(104, 99, 99);;
+  border-radius: 5px;
+  transform: scale(1.1);
+  }
+
 }
 .save-button:disabled {
   color: rgb(104, 99, 99);
@@ -244,11 +264,14 @@ p.name-message {
   left: 50%;
   transform: translateX(-50%);
   color: var(--white-color);
-  background-color: rgb(31, 30, 30);
+  background-color: rgb(78, 55, 55);
   font-size: 15px;
   white-space: nowrap;
   z-index: 10;
   display: none;
+  padding: 0.5rem;
+  border-radius: 5px;
+  font-weight: 400;
 }
 
 .pencil:hover .hover-text,

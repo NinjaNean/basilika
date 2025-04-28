@@ -40,10 +40,12 @@
     text-decoration: none;
     border-radius: 5px;
     cursor: pointer;
-    
+    transition: background-color 0.5s ease, transform 0.5s ease, box-shadow 0.3s ease;
 
     &:hover {
       background-color: var(--dark-red);
+      transform: translateY(-1px) scale(1.02);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
       
     }
   }

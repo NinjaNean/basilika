@@ -33,25 +33,43 @@
 }
 
 .cancel-button {
-  background-color: #801313;
-  color: #fff;
-  padding: 0.75rem 1.5rem;
+  background-color: var(--white-color);
+  color: rgb(20, 20, 20);
+  padding: 1rem 1.5rem;
+  font-size: clamp(1rem, 0.8rem + 1vw, 2rem);
+  letter-spacing: 1px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   flex: 1;
   margin-right: 0.5rem;
+  transition: background-color 0.5s ease, transform 0.5s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    background-color: var(--red-color);
+      transform: translateY(-1px) scale(1.02);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  }
 }
 
 .add-button {
-  background-color: #2e0f0f;
-  color: #fff;
-  padding: 0.75rem 1.5rem;
-  border: none;
+  background-color: var(--red-color);
+  padding: 1rem 1.5rem;
+  color: var(--white-color);
+  font-size: clamp(1rem, 0.8rem + 1vw, 2rem);
+  letter-spacing: 1px;
+  flex: 1;
+  text-decoration: none;
   border-radius: 5px;
   cursor: pointer;
-  flex: 1;
-  margin-left: 0.5rem;
+  border: none;
+  transition: background-color 0.5s ease, transform 0.5s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    background-color: var(--dark-red);
+      transform: translateY(-1px) scale(1.02);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  }
 }
 
 .close-button {
