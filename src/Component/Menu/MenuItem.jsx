@@ -108,7 +108,7 @@ function MenuItem({ foodItem, active }) {
         )}
       </div>
 
-      <div className="menu-flex">
+      <div className={!active ? "menu-flex" : "menu-flex edit-flex"}>
         <div>
           {active ? (
             <>

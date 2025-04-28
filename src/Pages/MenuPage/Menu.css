@@ -49,7 +49,6 @@
 .menu-item {
   display: flex;
   justify-content: space-between;
-  align-items: center;
   gap: 2rem;
   border-bottom: 0.5px solid var(--white-color);
   padding: 1rem;
@@ -72,6 +71,17 @@
       aspect-ratio: 4/3;
       object-fit: cover;
       border-radius: 5px;
+    }
+  }
+
+  .menu-flex.edit-flex {
+    flex-direction: column;
+    gap: 0;
+    align-items: flex-start;
+    width: 50%;
+
+    .button-container {
+      flex-direction: row;
     }
   }
 
@@ -127,7 +137,6 @@
       color: var(--red-color);
       transform: scale(1.02);
     }
-
   }
 }
 
@@ -168,7 +177,6 @@
     color: var(--red-color);
     background-color: var(--white-color);
     transform: scale(1.05);
-    
   }
 }
 
@@ -184,16 +192,14 @@
   border: none;
   color: var(--white-color);
   padding: 3px 6px;
-  position: relative;
   width: 40px;
   transition: background-color 0.3s ease, transform 0.3s ease, border 0.3s ease;
 
   &:hover {
-  border: 1px solid rgb(104, 99, 99);;
-  border-radius: 5px;
-  transform: scale(1.1);
+    border: 1px solid rgb(104, 99, 99);
+    border-radius: 5px;
+    transform: scale(1.1);
   }
-
 }
 .save-button:disabled {
   color: rgb(104, 99, 99);
@@ -230,9 +236,6 @@
 .description-input {
   width: 280px;
   height: 35px;
-}
-.url-input {
-  max-width: 190px;
 }
 .name-input {
   width: 200px;
