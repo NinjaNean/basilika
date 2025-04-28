@@ -33,15 +33,18 @@
   .primary-button {
     background-color: var(--red-color);
     text-transform: uppercase;
-    border: 1px solid var(--red-color);
     padding: 1rem 1.5rem;
     color: var(--white-color);
     font-size: clamp(1rem, 0.8rem + 1vw, 2rem);
     letter-spacing: 1px;
     text-decoration: none;
+    border-radius: 5px;
+    cursor: pointer;
+    
 
     &:hover {
       background-color: var(--dark-red);
+      
     }
   }
 }

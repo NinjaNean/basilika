@@ -1,7 +1,5 @@
 .cart-wrapper {
   position: sticky;
-  display: flex;
-  justify-content: space-evenly;
   color: var(--black-color);
   bottom: 0;
   width: 100%;
@@ -21,7 +19,9 @@
 
 .toggle-button {
   position: absolute;
-  min-width: fit-content;
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: max-content;
   cursor: pointer;
   border: none;
   margin-top: 1rem;

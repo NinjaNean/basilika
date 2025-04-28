@@ -38,20 +38,20 @@
 }
 
 .login-btn {
-  background-color: var(--dark-red);
-  color: white;
-  padding: 12px;
-  width: 100%;
-  font-size: 16px;
-  border: none;
-  border-radius: 6px;
+  background-color: var(--red-color);
+  text-transform: uppercase;
+  padding: 1rem 1.5rem;
+  color: var(--white-color);
+  font-size: clamp(1rem, 0.8rem + 1vw, 2rem);
+  letter-spacing: 1px;
+  text-decoration: none;
+  border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
-  margin-top: 10px;
+  border: none;
 }
 
 .login-btn:hover {
-  background-color: var(--red-color);
+  background-color: var(--dark-red);
 }
 
 .error-text {
