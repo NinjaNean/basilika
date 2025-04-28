@@ -1,113 +1,73 @@
 .info-container {
-	display: flex;
-	background-color: #6e1d1d;
-	color: white;
-	padding: 20px;
-	justify-content: space-between;
-	gap: 20px; 
+  display: flex;
+  background-color: var(--dar-red);
+  color: var(--white-color);
+  padding: 20px;
+  justify-content: space-evenly;
+}
+
+.left-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  max-width: 300px;
+  gap: 10px;
+}
+
+.oppet,
+.besok {
+  font-size: 55px;
+}
+.date {
+  font-size: 25px;
+}
+.address {
+  font-size: 35px;
+}
+
+.right-box {
+  width: 45%;
+}
+
+.map-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+@media (min-width: 320px) and (max-width: 900px) {
+  .info-container {
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+    gap: 30px;
+    justify-content: space-between;
   }
-  
-  .left-section {
-	display: flex;
-	flex-direction: column;
-	justify-content: flex-start;
-	width: 50%;
-	gap: 10px; 
-  }
-  .oppet,.besok{
-	font-size: 55px;
-  }
-  .date{
-	font-size: 25px;
-  }
-  .address{
-	font-size: 35px;
-  }
-  
-  
+
+  .left-section,
   .right-box {
-	width: 45%;
+    width: 100%;
+    text-align: center;
   }
-  
-  .map-img {
-	width: 100%;
-	height: 100%;
-	object-fit: cover;
-	border-radius: 8px;
+
+  .oppet,
+  .besok {
+    font-size: 40px;
   }
- 
-.info-container {
-	display: flex;
-	background-color: #6e1d1d;
-	color: white;
-	padding: 20px;
-	justify-content: space-between;
-	gap: 20px; 
-  }
-  
-  .left-section {
-	display: flex;
-	flex-direction: column;
-	justify-content: flex-start;
-	width: 50%;
-	gap: 10px; 
-  }
-  
-  .oppet, .besok {
-	font-size: 55px;
-  }
-  
+
   .date {
-	font-size: 25px;
+    font-size: 20px;
   }
-  
+
   .address {
-	font-size: 35px;
+    font-size: 25px;
   }
-  
-  .right-box {
-	width: 45%;
-  }
-  
+
   .map-img {
-	width: 100%;
-	height: 100%;
-	object-fit: cover;
-	border-radius: 8px;
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 8px;
   }
-  
-  
-  @media (min-width: 320px) and (max-width: 750px) {
-	.info-container {
-	  flex-direction: column;
-	  align-items: center;
-	  padding: 15px;
-	  gap: 30px;
-	}
-  
-	.left-section, .right-box {
-	  width: 100%;
-	  text-align: center;
-	}
-  
-	.oppet, .besok {
-	  font-size: 40px;
-	}
-  
-	.date {
-	  font-size: 20px;
-	}
-  
-	.address {
-	  font-size: 25px;
-	}
-  
-	.map-img {
-	  width: 100%;
-	  height: 300px; 
-	  object-fit: cover;
-	  border-radius: 8px;
-	}
-  }
-  
-  
+}
