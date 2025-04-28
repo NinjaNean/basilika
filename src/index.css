@@ -30,5 +30,5 @@ main {
   flex-direction: column;
   justify-content: space-between;
   min-height: 100dvh;
-  background-color: var(--dark-red);
+  background-color: var(--dark-background);
 }

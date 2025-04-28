@@ -17,8 +17,8 @@ const InfoBox = () => {
         <div className="left-box2">
           <h2 className="besok">Besökadress</h2>
           <div className="address">
-            <p>Storgatan 45</p>
-            <p>41138 Göteborg</p>
+            <p>Redegatan 2</p>
+            <p>42155 Göteborg</p>
           </div>
         </div>
       </div>

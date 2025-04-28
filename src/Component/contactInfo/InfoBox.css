@@ -1,6 +1,5 @@
 .info-container {
   display: flex;
-  background-color: var(--dar-red);
   color: var(--white-color);
   padding: 20px;
   justify-content: space-evenly;
