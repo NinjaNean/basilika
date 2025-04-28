@@ -33,7 +33,7 @@ function Order() {
 
         <div className="cart-body">
           {cart.length === 0 ? (
-            <div className="cart-row">
+            <div className="empty-order">
               <p>Du har inte lagt till något ännu!</p>
             </div>
           ) : (
@@ -76,7 +76,7 @@ function Order() {
         </div>
 
         <div className="cart-footer">
-          <p className="cart-heading">Totalpris</p>
+          <p>Totalpris</p>
           <div className="total-price">{totalPrice}:-</div>
         </div>
       </div>
