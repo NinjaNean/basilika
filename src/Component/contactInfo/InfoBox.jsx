@@ -8,7 +8,7 @@ const InfoBox = () => {
         <div className="left-box">
           <h2 className="oppet">Öppettider</h2>
           <div className="date">
-            <p>Måndag - Torsdag:17:00-23:00</p>
+            <p>Vardagar: 17:00-23:00</p>
             <p>Fredag: 17:00-01:00</p>
             <p>Lördag: 12:00-01:00</p>
             <p>Söndag: 12:00-23:00</p>
@@ -22,6 +22,7 @@ const InfoBox = () => {
           </div>
         </div>
       </div>
+
       <div className="right-box">
         <img src={mapImage} alt="map" className="map-img" />
       </div>
