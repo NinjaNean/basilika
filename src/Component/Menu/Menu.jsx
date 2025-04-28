@@ -5,7 +5,8 @@ import { getMenuFromAPI } from "../../data/jsonStorage.js";
 import AddItem from "../add-item/AddItem.jsx";
 
 function Menu() {
-  const { foodDataList, totalPrice, toggleItemActive, setFoodData } = useCartStore();
+  const { foodDataList, totalPrice, toggleItemActive, setFoodData, addFoodVisible, switchAddFoodVisible } =
+    useCartStore();
   const categories = ["Sushi", "Dumplings", "Snacks", "Drycker"];
   const [editClick, setEditClick] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(null);
@@ -53,7 +54,7 @@ function Menu() {
           <button className={`edit-item-button ${editClick ? "edit-mode" : ""}`} onClick={handleEditClick}>
             {editClick ? "Klart" : "Redigera"}
           </button>
-          <button onClick={() => setAddFoot(true)} className="add-item-button">
+          <button onClick={() => switchAddFoodVisible(true)} className="add-item-button">
             Lägg till
           </button>
           <button className="logout-button" onClick={handleLogout}>
@@ -62,7 +63,7 @@ function Menu() {
         </div>
       )}
 
-      {addFood && <AddItem onAddItem={handleAddItem} />}
+      {addFoodVisible && <AddItem onAddItem={handleAddItem} />}
 
       {categories.map((category) => (
         <div key={category}>
