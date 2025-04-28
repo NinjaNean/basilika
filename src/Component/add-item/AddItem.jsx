@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Joi from "joi";
 import "./AddItem.css";
+import useCartStore from "../../data/cartStore.js";
 
 const schema = Joi.object({
   name: Joi.string()
@@ -43,6 +44,7 @@ const AddItem = ({ onAddItem }) => {
   });
   const [error, setError] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const { switchAddFoodVisible } = useCartStore();
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -102,8 +104,16 @@ const AddItem = ({ onAddItem }) => {
     setError("");
   };
 
+  const handleClose = () => {
+    switchAddFoodVisible(false);
+  };
+
   return (
     <div className="admin-menu-container">
+      <button className="close-button" onClick={handleClose}>
+        ✖
+      </button>
+
       {isSubmitted ? (
         <div className="success-message">
           <h2>Maträtten har lagts till!</h2>
@@ -157,7 +167,7 @@ const AddItem = ({ onAddItem }) => {
                   })
                 }
               >
-                Avbryt
+                Rensa
               </button>
               <button className="add-button" onClick={handleAddItem}>
                 Lägg till

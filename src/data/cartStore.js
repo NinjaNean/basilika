@@ -6,6 +6,10 @@ const useCartStore = create((set, get) => ({
   totalPrice: 0,
   foodDataList: [],
 
+  switchAddFoodVisible: (option) => {
+    set({ addFoodVisible: !!option });
+  },
+
   setFoodData: (data) => set({ foodDataList: data }),
 
   addToCart: (menuOption) => {
