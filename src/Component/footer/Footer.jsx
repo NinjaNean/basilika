@@ -1,6 +1,8 @@
 import './Footer.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTwitter, faFacebook, faInstagram } from '@fortawesome/free-brands-svg-icons'; 
+import { NavLink } from 'react-router';
+import { faLock } from "@fortawesome/free-solid-svg-icons";
 
 
 
@@ -44,6 +46,10 @@ const Footer = () => {
             </section>
             
                 <section className='footer-source'>
+                <NavLink className='lock-button' to="/signin">
+                    <FontAwesomeIcon icon={faLock} className="lock" />
+                    <span className='hover-text'>Admin</span>
+                </NavLink>
                     <p className='source'> Utvecklad av Sally, Linnéa, Shweta, Malahat och Sara </p>
                 </section>
                 </div>
