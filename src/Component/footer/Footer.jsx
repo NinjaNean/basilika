@@ -39,7 +39,7 @@ const Footer = () => {
                 </div>
 
                 <div className="footer-heading1">
-                    <h4>Find us</h4>
+                    <h4>Hitta oss</h4>
                     <p className='footer-text'>Du hittar oss 100m från busshållpats</p>
                    
                 </div>

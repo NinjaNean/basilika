@@ -5,7 +5,7 @@ const validationSchema = Joi.object({
     .min(4)
     .max(22)
     .required()
-    .pattern(/^[a-zA-ZåäöÅÄÖ\s,.]*$/),
+    .pattern(/^[a-zA-ZåäöÅÄÖ\s,.-]*$/),
 
   storeDescription: Joi.string()
     .min(5)

@@ -9,12 +9,12 @@ const OpenMenu = () => {
   const closeMenu = useOpenMenuStore((state) => state.closeMenu);
 
   if (!isOpen) return null;
-  console.log("isOpen:", isOpen);
+  
 
   return (
     <div className="nav-links" onClick={closeMenu}>
       <NavLink to="/">Hem</NavLink>
-      <NavLink to="/menu">Menu</NavLink>
+      <NavLink to="/menu">Meny</NavLink>
       <NavLink to="/contact">Kontakta oss</NavLink>
     </div>
   );

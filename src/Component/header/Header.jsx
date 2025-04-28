@@ -9,7 +9,7 @@ import { useOpenMenuStore } from "../../data/openMenuStore";
 const Header = () => {
   const isOpen = useOpenMenuStore((state) => state.isOpen);
   const toggleMenu = useOpenMenuStore((state) => state.toggleMenu);
-  console.log(toggleMenu);
+  
 
   return (
     <header className="header-container">
